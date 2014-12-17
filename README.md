@@ -50,3 +50,4 @@ On the specified endpoint a JSON array of customers must be available through GE
 ## Limitations
 * The extension currently does not support any authentication when calling the endpoint
 * The extension is only available in swedish
+* No tests available
