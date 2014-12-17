@@ -16,10 +16,10 @@ The extension is now installed. Click Options to enter the URL to your enpoint
 
 After a successful installation - a yellow icon with a red plus will show up next to the URL field.
 
-While on the DHL Multishippings create customer view - click the extension icon.
-The extension will now load all customers available and populate a select
-Selecting one of the customers will populate the extensions input fields allowing you to alter the information
-Click Skicka till formuläret to populate the DHL form
+* While on the DHL Multishippings create customer view - click the extension icon.
+* The extension will now load all customers available and populate a select
+* Selecting one of the customers will populate the extensions input fields allowing you to alter the information
+* Click *Skicka till formuläret* to populate the DHL form
 
 ## Required JSON feed
 
@@ -46,5 +46,7 @@ On the specified endpoint a JSON array of customers must be available through GE
   }
 ]
 ```
-The extension currently does not support any authentication when calling the endpoint
 
+## Limitations
+* The extension currently does not support any authentication when calling the endpoint
+* The extension is only available in swedish
