@@ -1,12 +1,12 @@
 
 var popup = {
 
-	/**
+  /**
     * Variable to hold the JSONArray of customers
     *
     * @private
     */
-	customers: null,
+  customers: null,
 
 
     /**
@@ -15,7 +15,7 @@ var popup = {
     *
     * @public
     */
-	loadCustomers: function () {
+  loadCustomers: function () {
 
         this.log("Entering loadCustomers");
 
@@ -38,26 +38,26 @@ var popup = {
 
         this.log("Endpoint is " + endpoint + " initiating XMLHttpRequest");
 
-		var req = new XMLHttpRequest();
-	    req.open("GET", endpoint, true);
-	    req.onload = this.createCustomerOptions.bind(this);
-	    req.send(null);
-	},
+    var req = new XMLHttpRequest();
+      req.open("GET", endpoint, true);
+      req.onload = this.createCustomerOptions.bind(this);
+      req.send(null);
+  },
 
 
     /**
-    * Populate the customer data in the related fields 
+    * Populate the customer data in the related fields
     *
     * @public
     */
-	populateCustomerData: function () {
+  populateCustomerData: function () {
 
         this.log("Entering showCustomerData");
         var selectorObject = document.getElementById('customers');
         var customerId = selectorObject.options[selectorObject.selectedIndex].value;
 
         var customer = this.getCustomerById(customerId);
-       
+
         document.getElementById('id').value = customer.id;
         document.getElementById('name').value = customer.name;
         document.getElementById('address').value = customer.address;
@@ -66,11 +66,11 @@ var popup = {
         document.getElementById('phone').value = customer.phone;
         document.getElementById('email').value = customer.email;
 
-	},
+  },
 
 
     /**
-    * Get the data from the input fields, build a javascript string 
+    * Get the data from the input fields, build a javascript string
     * and send them through chrome.tab.executeScript to the current
     * active tab
     *
@@ -144,52 +144,83 @@ var popup = {
     },
 
 
-	/**
+  /**
     * Search the 'customers' array for a customer with the passed customerId as id
     *
     * @param {number} customerId, a customer ID
     * @return {JSONobject} customer
     * @private
     */
-	getCustomerById: function (customerId) {
-        this.log("Entering getCustomerById_");
+  getCustomerById: function( id ){
+    this.log("Entering getCustomerById", id );
 
-        var c = this.customers;
-        var customer = null;
+    return this.customers[ id ];
+  },
 
-        for (var i=0; i<c.length; i++){
-          if (c[i].id === customerId) {
-            customer = c[i];
-            this.log("Customer found");
-            this.log(customer);
-            break;
-          }
-        }
+  /**
+   * @private
+   *
+   * Updates the #customers select input with new values based on the passed
+   * customers object.
+   *
+   * @param {Object} customers, Customers objects with customer ids as keys
+   * and the corresponding customer as value.
+   * @param {Number|String} customers.id
+   * @param {String} customers.name
+   */
+  updateCustomerOptionsDOM: function( customers ){
+    var length, options, customer;
 
-        return customer;
-	},
+    options = '<option value="">V&auml;lj kund</option>';
+    length = customers.length;
 
+    Object.keys( customers ).forEach( function( key ){
+      customer = customers[ key ];
+      options += '<option value="'+ customer.id +'">'+ customer.name +'</option>';
+    });
 
-	/**
-    * Create the customer options in the 'customers' select object
-    *
-    * @param {ProgressEvent} e The XHR ProgressEvent.
-    * @private
-    */
-	createCustomerOptions: function (e) {
-        this.log("Entering createCustomerOptions");
+    this.log( 'options are', options );
 
-		this.customers = JSON.parse(e.target.responseText);
-		var c = this.customers;
-		var options = '<option value="">V&auml;lj kund';
+    document.getElementById( 'customers' ).innerHTML = options;
+  },
 
-		for (var i=0; i<c.length; i++) { 
-			options += '<option value="'+ c[i].id +'">'+ c[i].name +'</option>';
-		}
+  /**
+   * @private
+   *
+   * Parses event responseText into a customer object.
+   *
+   * @param {responseText} responseText, JSON encoded Array of customer objects.
+   * @return {Object} An object with customer ids as keys and the corresponding
+   * customer as value.
+   */
+  parseResposetextToCustomers: function( responseText ){
+    var customerArray, customers;
 
-        this.log("options are " + options)
-		document.getElementById('customers').innerHTML = options;
-	},
+    customerArray = JSON.parse( responseText );
+    customers = {}
+
+    customerArray.forEach( function( customer ){
+      customers[ customer.id ] = customer;
+    });
+
+    return customers;
+  },
+
+  /**
+   * Create the customer options in the 'customers' select object
+   *
+   * @param {ProgressEvent} e The XHR ProgressEvent.
+   * @private
+   */
+  createCustomerOptions: function( event ){
+    this.log("Entering createCustomerOptions");
+    var responseText, customers;
+
+    responseText = event.target.responseText;
+    customers = getCustomersFromResposetext( responsText );
+    this.updateCustomerOptionsDOM( customers );
+    this.customers = customers;
+  },
 
 
     /**
@@ -198,23 +229,23 @@ var popup = {
     * @param {string} message, the message to be displayed
     *
     * @private
-    */    
+    */
     error: function(message) {
         this.log("Error: " + message);
         var errorContainer = document.getElementById('error');
 
-        errorContainer.innerHTML = message;        
+        errorContainer.innerHTML = message;
     },
 
 
     /**
-    * If the setting Debug is enabled - we pass on the message to 
+    * If the setting Debug is enabled - we pass on the message to
     * the window.console
     *
     * @param {string} message, the message to be logged
     *
     * @private
-    */    
+    */
     log: function(message) {
         debug = localStorage['debug'];
 
@@ -240,4 +271,3 @@ document.getElementById('customers').addEventListener('change', function () {
 document.getElementById('send_info').addEventListener('click', function () {
   popup.fillDhlForm();
 });
-
