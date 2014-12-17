@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "DHL Autofiller",
+  "description": "Ett ruskigt fiffigt pluigin som gör det möjligt att autofilla DHLmultishippings kundformulär baserat på REST-data från ditt affärssystem.",
+  "version": "1.0",
+  "permissions": [
+        "tabs",
+        "activeTab",
+        "http://*/",
+        "https://*/",
+        "file:///"
+    ],
+  "options_page": "options.html",
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "icons" : {
+    "16" : "icon-16.png",
+    "48" : "icon-48.png",
+    "128" : "icon-128.png"
+  }
+}

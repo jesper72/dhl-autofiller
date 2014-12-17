@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DHL Autofiller - Settings</title>
+    <style>
+      body {
+        font-size: 14px;
+      }
+
+      .endpoint_info {
+        margin-top: 20px;
+      }
+
+      .endpoint {
+        width: 300px;
+        font-size: 14px;
+        padding: 5px;
+      }
+
+      pre {
+        width: 500px  ;
+        font-family: 'courier new';
+        border: 1px solid #aaa;
+        border-radius: 2px;
+        background: #eee;
+      }
+
+      .leading-icon {
+        width: 22px;
+      }
+
+      .test-connection {
+        padding: 5px;
+        font-size: 14px;
+      }
+
+      .test-result {
+        margin: 10px 0 0 20px;
+        font-size: 12px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <h1><img src="icon-48.png" class="leading-icon"> DHL Autofiller</h1>
+    <input type="checkbox" id="debug"><label for"debug">Debugläge (till console)</label><br><br>
+    <input type="text" id="endpoint" class="endpoint" placeholder="API Endpoint" /> <button id="test_connection" class="test-connection">Testa</button><br>
+    <div class="test-result" id="test_result"></div>
+    <div class="endpoint_info">
+      Endpointen ska på en GET-request returnera en array av customers enligt strukturen:
+<pre>
+[
+  {
+    "id": "1",
+    "name": "Jesper Svensson",
+    "address": "Golfrundan 16",
+    "zipcode": "35249",
+    "city": "Växjö",
+    "email": "jesper@svenssonskod.se",
+    "phone": "0708515219"
+  },
+  {
+    "id": "2",
+    "name": "Bengt Bengtsson",
+    "address": "Bengtsvägen 790",
+    "zipcode": "12345",
+    "city": "Knäckebrödhult",
+    "email": "",
+    "phone": "012345678"
+  }
+]
+</pre>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>
+

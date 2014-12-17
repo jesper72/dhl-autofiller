@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DHL Autofiller</title>
+    <style>
+      body {
+        min-width: 357px;
+        overflow-x: hidden;
+      }
+
+      .customer-info {
+        height: 330px;
+      }
+
+      .customer-info input {
+        margin-top: 10px;
+        width: 80%;
+        font-size: 14px;
+        padding: 3px;
+      }
+
+      .customer-info button {
+        background-color: green;
+        color: #fff;
+        padding: 8px;
+        margin: 10px 0;
+        border: 1px solid darkGreen;
+        border-radius: 3px;
+        font-size: 14px;
+      }
+
+      .reload-icon {
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .customers {
+        width: 150px;
+        font-size: 14px;
+        padding: 4px;
+      }
+
+      .credits {
+        color:#aaa;
+        font-size: 10px;
+      }
+
+      .leading-icon {
+        width: 22px;
+      }
+
+      .error {
+        color:#ff0000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><img src="icon-48.png" class="leading-icon"> DHL Autofiller</h1>
+    <div id="error" class="error"></div>
+
+    <div class="input-fields">
+      <select id="customers" class="customers">
+        <option value="">Laddar kunder...
+      </select>
+
+      <img id="reload" src="reload.png" class="reload-icon" />
+      
+      <div class="customer-info" id="info">
+        <input id="id" placeholder="KundId" /><br>
+        <input id="name" placeholder="Namn" /><br>
+        <input id="address" placeholder="Adress" /><br>
+        <input id="zipcode" placeholder="Postnummer" /><br>
+        <input id="city" placeholder="Stad" /><br>
+        <input id="phone" placeholder="Telefonnummer" /><br>
+        <input id="email" placeholder="E-post" /><br>
+        <button id="send_info">Skicka till formuläret</button>
+      </div>
+
+    </div>
+    
+    <span class="credits">Powered by Svenssons Kod</span>
+    <script src="popup.js"></script>
+  </body>
+</html>
+
