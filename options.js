@@ -1,6 +1,21 @@
 
 var options =  {
 
+	init: function () {
+
+		var header_fields = document.getElementsByClassName('header-input')
+			_this = this;
+
+		for (var i=0; i<header_fields.length; i++) {
+			header_fields[i].addEventListener('keyup', function () {
+				_this.setHeaders();
+			});	
+		}
+		
+		this.loadOptions();
+	},
+
+
 	/**
     * Get the values from loacal storage and display the values
     * in the input fields
@@ -9,11 +24,36 @@ var options =  {
     */
 	loadOptions: function() {
 		var endpoint = localStorage['endpoint'],
-			debug = localStorage['debug'];
+			debug = localStorage['debug'],
+			headers = localStorage['headers'],
+			form = localStorage['form'];
 
-		document.getElementById('endpoint').value = endpoint;
+		if (endpoint) {
+		  document.getElementById('endpoint').value = endpoint;
+		}
+		
 		if (debug !== 'false') {
 			document.getElementById('debug').checked = true;
+		}
+
+		if (headers) {
+			var json = JSON.parse(headers),
+					header_fields = document.getElementsByClassName('header-input'),
+					field_pair = 0;
+
+					for (var i=0; i<json.length; i++){
+						var key = json[i].key,
+								value = json[i].value;
+
+						header_fields[field_pair].value = key;
+						header_fields[field_pair +1].value = value;
+
+						field_pair += 2;
+					}
+		}
+
+		if (form) {
+			document.getElementById('form').value = form;
 		}
 	},
 
@@ -27,7 +67,7 @@ var options =  {
 		var endpoint = document.getElementById('endpoint').value;
 		localStorage['endpoint'] = endpoint; 
 
-		this.log('Persisted endpoint in local localStorage with value ' + endpoint);
+		this.log('Persisted endpoint setting in local localStorage with value ' + endpoint);
 	},
 
 
@@ -36,13 +76,56 @@ var options =  {
     *
     * @public
     */
-	persistDebugFlag: function() {
+	setDebugFlag: function() {
 		var debugFlag = (document.getElementById('debug').checked);
 		localStorage['debug'] = debugFlag; 
 
-		this.log('Persisted debug in local localStorage with value ' + debugFlag);
+		this.log('Persisted debug setting in local localStorage with value ' + debugFlag);
 	},
 
+
+	/**
+    * Store the value of the headers field in local storage
+    *
+    * @public
+    */
+	setHeaders: function() {
+	
+		var header_fields = document.getElementsByClassName('header-input'),
+			header_data = [],
+			key, value;
+	
+		for (var i=0; i<header_fields.length; i++){
+			var type = header_fields[i].getAttribute('data-type');
+
+			if (type === 'key'){
+				key = header_fields[i].value;
+			} else {
+				value = header_fields[i].value;
+
+				if (key.length > 0 && value.length > 0) {
+					header_data.push({key: key, value: value});
+				}
+			}
+		}
+
+		var json = JSON.stringify(header_data);
+
+		localStorage['headers'] = json;
+	},
+
+
+	/**
+    * Store the value of the form field in local storage
+    *
+    * @public
+    */
+	setForm: function() {
+		var form = (document.getElementById('form').value);
+		localStorage['form'] = form; 
+
+		this.log('Persisted form setting in local localStorage with value ' + form);
+	},
 
 
 	/**
@@ -52,88 +135,34 @@ var options =  {
     * @public
     */
 	testConnection: function() {
-		this.testResult('');
-		var endpoint = localStorage['endpoint'];
+		
+		var endpoint = localStorage['endpoint'],
+			_this = this,
+			req = new XMLHttpRequest(),
+			headers = localStorage['headers'],
+			json_headers = JSON.parse(headers);
 
-		var _this = this;	
-		var req = new XMLHttpRequest();
-	    req.open("GET", endpoint, true);
-	    req.onreadystatechange = function (oEvent) {  
-		    if (req.readyState === 4) {  
-		        if (req.status === 200) {  
-		          _this.testData(req.responseText);  
-		          _this.testResult('Anslutningen lyckades<br>', true);	    
-		        } else {  
-		           _this.log('XMLHttpRequest threw error '+ req.statusText);	
-		           _this.testResult('Anslutningen misslyckades: ' + req.statusText +'<br>', true);	         
-		        }  
-		    }  
+		this.testResult('');
+
+		req.open("GET", endpoint, true);
+
+		for (var i=0; i<json_headers.length; i++){
+			req.setRequestHeader(json_headers[i].key,json_headers[i].value);
+		}
+
+    req.onreadystatechange = function (oEvent) {  
+	    if (req.readyState === 4) {  
+	        if (req.status === 200) {  
+	          _this.testResult('OK', true);	    
+	        } else {  
+	           _this.log('XMLHttpRequest threw error '+ req.statusText);	
+	           _this.testResult('Fail', true);	         
+	        }  
+	    }  
 		};  
 	    req.send(null);	
 	},
 
-
-	/**
-    * Tests the data against the required JSON structure
-    *
-    * @param {string} data, a JSON formatted string containing an array of customers
-    * @public
-    */
-	testData: function(data) {
-		
-		try {
-			var customers = JSON.parse(data);
-			var errors = [];
-
-			for (var i = 0; i<customers.length; i++) {
-				var id = customers[i].id,
-					name = customers[i].name,
-					address = customers[i].address,
-					zipcode = customers[i].zipcode,
-					city = customers[i].citsy,
-					phone = customers[i].phone,
-					email = customers[i].email;
-
-				if (typeof id == undefined) {
-					errors.push('id');
-				}
-				if (typeof name == undefined) {
-					errors.push('name');
-				}
-				if (typeof address == undefined) {
-					errors.push('address');
-				}
-				if (typeof zipcode == undefined) {
-					errors.push('zipcode');
-				}
-				if (typeof city == undefined) {
-					errors.push('city');
-				}
-				if (typeof phone == undefined) {
-					errors.push('phone');
-				}
-				if (typeof email == undefined) {
-					errors.push('email');
-				}
-
-			}
-
-			if (errors.length > 0) {
-				this.testResult('Datastukturen är inkorrekt<br>' + errors.join(',') +'<br>', true);
-			} else {
-				this.testResult('Datastukturen är korrekt<br>', true);
-			}
-
-				      
-		} catch (err) {
-			this.log('testData threw error '+ err.message);
-			this.testResult('Datastukturen är inte valid json<br>' + err.message, true);
-		}
-
-		var _this = this;
-		
-		setTimeout(function() { _this.testResult(''); }, 2000);
-	},
 
 
 	/**
@@ -171,7 +200,7 @@ var options =  {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  options.loadOptions();
+  options.init();
 });
 
 document.getElementById('endpoint').addEventListener('keyup', function () {
@@ -182,6 +211,11 @@ document.getElementById('debug').addEventListener('click', function () {
   options.setDebugFlag();
 });
 
+document.getElementById('form').addEventListener('change', function () {
+  options.setForm();
+});
+
 document.getElementById('test_connection').addEventListener('click', function () {
   options.testConnection();
 });
+

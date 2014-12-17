@@ -8,6 +8,15 @@
         font-size: 14px;
       }
 
+      .options {
+        min-width: 200px;
+      }
+
+      .options td {
+        padding: 12px 0;
+        vertical-align:top;
+      }
+
       .endpoint_info {
         margin-top: 20px;
       }
@@ -38,41 +47,62 @@
       .test-result {
         margin: 10px 0 0 20px;
         font-size: 12px;
+      }
 
+      .headers {
+        width: 300px;
+      }
+
+      label {
+        width: 100px;
+        font-weight: bold;
+      }
+
+      .btn {
+        padding: 0 2px 2px 2px;
+        font-size: 14px;
+        width: 18px;  
+      }
+      .header-input {
+        margin: 0 10px 3px 0;
+        font-size: 14px;
+        padding: 5px;
       }
     </style>
   </head>
-  <body>
+  <body><i class="fa fa-camera-retro"></i>
     <h1><img src="icon-48.png" class="leading-icon"> DHL Autofiller</h1>
-    <input type="checkbox" id="debug"><label for"debug">Debugläge (till console)</label><br><br>
-    <input type="text" id="endpoint" class="endpoint" placeholder="API Endpoint" /> <button id="test_connection" class="test-connection">Testa</button><br>
-    <div class="test-result" id="test_result"></div>
-    <div class="endpoint_info">
-      Endpointen ska på en GET-request returnera en array av customers enligt strukturen:
-<pre>
-[
-  {
-    "id": "1",
-    "name": "Jesper Svensson",
-    "address": "Golfrundan 16",
-    "zipcode": "35249",
-    "city": "Växjö",
-    "email": "jesper@svenssonskod.se",
-    "phone": "0708515219"
-  },
-  {
-    "id": "2",
-    "name": "Bengt Bengtsson",
-    "address": "Bengtsvägen 790",
-    "zipcode": "12345",
-    "city": "Knäckebrödhult",
-    "email": "",
-    "phone": "012345678"
-  }
-]
-</pre>
-    </div>
-
+    <table class="options">
+      <tr>
+        <td><label for="debug">Debugläge</label></td>
+        <td><input type="checkbox" id="debug"></td>
+      </tr>
+      <tr>
+        <td><label for="form">DHL-formulär</label></td>
+        <td>
+          <select id="form">
+            <option value="add_address">Lägg till adress</option>
+            <option value="register_shipment">Registrera sändning</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="headers">HTTP Headers</label></td>
+        <td id="header_container">
+          <input type="text" placeholder="key" data-type="key" class="header-input"><input type="text" data-type="value" placeholder="value" class="header-input"><br>
+          <input type="text" placeholder="key" data-type="key" class="header-input"><input type="text" data-type="value" placeholder="value" class="header-input"><br>
+          <input type="text" placeholder="key" data-type="key" class="header-input"><input type="text" data-type="value" placeholder="value" class="header-input"><br>
+          <input type="text" placeholder="key" data-type="key" class="header-input"><input type="text" data-type="value" placeholder="value" class="header-input"><br>
+          <input type="text" placeholder="key" data-type="key" class="header-input"><input type="text" data-type="value" placeholder="value" class="header-input"><br>
+        </td>
+      </tr>
+      <tr>
+        <td colspan=2>
+          <input type="text" id="endpoint" class="endpoint" placeholder="API Endpoint" /> <button id="test_connection" class="test-connection">Testa</button>
+          <span class="test-result" id="test_result"></span>
+        </td>
+      </tr>
+    </table>
     <script src="options.js"></script>
   </body>
 </html>

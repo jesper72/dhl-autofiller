@@ -86,7 +86,8 @@ var popup = {
             zipcode = document.getElementById('zipcode').value,
             city = document.getElementById('city').value,
             phone = document.getElementById('phone').value,
-            email = document.getElementById('email').value;
+            email = document.getElementById('email').value
+            dhl_form = localStorage['form'];
 
         this.log("fillDhlForm data is: ");
         this.log("id: " + id);
@@ -97,18 +98,44 @@ var popup = {
         this.log("phone: " + phone);
         this.log("email: " + email);
 
-        var code = 'document.getElementById("id").value = "' + id +'";'+
-                    'document.getElementById("name").value = "' + name +'";'+
-                    'document.getElementById("addressline.0").value = "' + address +'";'+
-                    'document.getElementById("postcode").value = "' + zipcode +'";'+
-                    'document.getElementById("city").value = "' + city +'";'+
-                    'document.getElementById("contactPerson").value = "' + name +'";'+
-                    'document.getElementById("mobile").value = "' + phone +'";'+
-                    'document.getElementById("phone").value = "' + phone +'";'+
-                    'document.getElementById("email").value = "' + email +'";'+
-                    'document.getElementById("type.consignee").checked = true;'+
-                    'document.getElementById("type.notify").checked = true;';
 
+        if (dhl_form === 'add_address') {
+
+             var code = 'document.getElementById("id").value = "' + id +'";'+
+                'document.getElementById("consignee_temp.id").value = "' + id +'";'+
+                'document.getElementById("name").value = "' + name +'";'+
+                'document.getElementById("consignee_temp.name").value = "' + name +'";'+
+                'document.getElementById("addressline.0").value = "' + address +'";'+
+                'document.getElementById("consignee_temp.addressline[0]").value = "' + address +'";'+
+                'document.getElementById("postcode").value = "' + zipcode +'";'+
+                'document.getElementById("consignee_temp.postcode").value = "' + zipcode +'";'+
+                'document.getElementById("city").value = "' + city +'";'+
+                'document.getElementById("consignee_temp.city").value = "' + city +'";'+
+                'document.getElementById("contactPerson").value = "' + name +'";'+
+                'document.getElementById("consignee_temp.contactPerson").value = "' + name +'";'+
+                'document.getElementById("mobile").value = "' + phone +'";'+
+                'document.getElementById("consignee_temp.mobile").value = "' + phone +'";'+
+                'document.getElementById("phone").value = "' + phone +'";'+
+                'document.getElementById("consignee_temp.phone").value = "' + phone +'";'+
+                'document.getElementById("email").value = "' + email +'";'+
+                'document.getElementById("consignee_temp.email").value = "' + email +'";'+
+                'document.getElementById("type.consignee").checked = true;'+
+                'document.getElementById("type.notify").checked = true;'+
+                'document.getElementByName("consignee_temp_save")[0].checked = true;';
+        } else {
+            
+            var code = 'document.getElementById("consignee_temp.id").value = "' + id +'";'+
+                    'document.getElementById("consignee_temp.name").value = "' + name +'";'+
+                    'document.getElementById("consignee_temp.addressline[0]").value = "' + address +'";'+
+                    'document.getElementById("consignee_temp.postcode").value = "' + zipcode +'";'+
+                    'document.getElementById("consignee_temp.city").value = "' + city +'";'+
+                    'document.getElementById("consignee_temp.contactPerson").value = "' + name +'";'+
+                    'document.getElementById("consignee_temp.mobile").value = "' + phone +'";'+
+                    'document.getElementById("consignee_temp.phone").value = "' + phone +'";'+
+                    'document.getElementById("consignee_temp.email").value = "' + email +'";'+
+                    'document.getElementsByName("consignee_temp_save")[0].checked = true;';
+        }   
+       
         this.log("code: " + code);
 
         chrome.tabs.executeScript(null, {code: code}, function() {
