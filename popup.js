@@ -217,7 +217,7 @@ var popup = {
     var responseText, customers;
 
     responseText = event.target.responseText;
-    customers = getCustomersFromResposetext( responsText );
+    customers = this.parseResposetextToCustomers( responseText );
     this.updateCustomerOptionsDOM( customers );
     this.customers = customers;
   },
