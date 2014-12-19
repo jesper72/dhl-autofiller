@@ -25,7 +25,8 @@ var options =  {
 			headers = localStorage['headers'],
 			form = localStorage['form'],
 			header_fields = document.getElementsByClassName('header-input'),
-			_this = this;
+			_this = this,
+			json, i;
 
 
 		for (var i=0; i<header_fields.length; i++) {
@@ -43,10 +44,10 @@ var options =  {
 		}
 
 		if (headers) {
-			var json = JSON.parse(headers),
+			json = JSON.parse(headers),
 					field_pair = 0;
 
-					for (var i=0; i<json.length; i++){
+					for (i=0; i<json.length; i++){
 						var key = json[i].key,
 								value = json[i].value;
 
@@ -98,10 +99,10 @@ var options =  {
 	
 		var header_fields = document.getElementsByClassName('header-input'),
 			header_data = [],
-			key, value;
+			key, value, i, type, json;
 	
-		for (var i=0; i<header_fields.length; i++){
-			var type = header_fields[i].getAttribute('data-type');
+		for (i=0; i<header_fields.length; i++){
+			type = header_fields[i].getAttribute('data-type');
 
 			if (type === 'key'){
 				key = header_fields[i].value;
@@ -114,7 +115,7 @@ var options =  {
 			}
 		}
 
-		var json = JSON.stringify(header_data);
+		json = JSON.stringify(header_data);
 
 		localStorage['headers'] = json;
 	},
@@ -143,29 +144,30 @@ var options =  {
 		
 		var endpoint = localStorage['endpoint'],
 			_this = this,
-			req = new XMLHttpRequest(),
+			request = new XMLHttpRequest(),
 			headers = localStorage['headers'],
-			json_headers = JSON.parse(headers);
+			json_headers = JSON.parse(headers),
+			i;
 
 		this.testResult('');
 
-		req.open("GET", endpoint, true);
+		request.open("GET", endpoint, true);
 
-		for (var i=0; i<json_headers.length; i++){
-			req.setRequestHeader(json_headers[i].key,json_headers[i].value);
+		for (i=0; i<json_headers.length; i++){
+			request.setRequestHeader(json_headers[i].key,json_headers[i].value);
 		}
 
-    req.onreadystatechange = function (oEvent) {  
-	    if (req.readyState === 4) {  
-	        if (req.status === 200) {  
+    	request.onreadystatechange = function (oEvent) {  
+	    if (request.readyState === 4) {  
+	        if (request.status === 200) {  
 	          _this.testResult('OK', true);	    
 	        } else {  
-	           _this.log('XMLHttpRequest threw error '+ req.statusText);	
+	           _this.log('XMLHttpRequest threw error '+ request.statusText);	
 	           _this.testResult('Fail', true);	         
 	        }  
 	    }  
 		};  
-	    req.send(null);	
+	    request.send(null);	
 	},
 
 

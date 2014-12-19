@@ -17,31 +17,41 @@ var popup = {
     */
   loadCustomers: function () {
 
-        this.log("Entering loadCustomers");
+    var request = new XMLHttpRequest(),
+        headers = localStorage['headers'],
+        json_headers = JSON.parse(headers),
+        i;
 
-        // Reset the input fields
-        document.getElementById('id').value = '';
-        document.getElementById('name').value = '';
-        document.getElementById('address').value = '';
-        document.getElementById('zipcode').value = '';
-        document.getElementById('city').value = '';
-        document.getElementById('phone').value = '';
-        document.getElementById('email').value = '';
+    this.log("Entering loadCustomers");
 
-        var endpoint = localStorage['endpoint'];
+    // Reset the input fields
+    document.getElementById('id').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('address').value = '';
+    document.getElementById('zipcode').value = '';
+    document.getElementById('city').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('email').value = '';
 
+    var endpoint = localStorage['endpoint'];
 
-        if (endpoint.length === 0) {
-            this.error("<br>Woppwopp, det verkar inte finnas någon endpoint konfigurerad. Gör det först och försök sedan igen!<br><br>");
-            return;
-        }
+    if (endpoint.length === 0) {
+        this.error("<br>Woppwopp, det verkar inte finnas någon endpoint konfigurerad. Gör det först och försök sedan igen!<br><br>");
+        return;
+    }
 
-        this.log("Endpoint is " + endpoint + " initiating XMLHttpRequest");
+    this.log("Endpoint is " + endpoint + " opening XMLHttpRequest");
 
-    var req = new XMLHttpRequest();
-      req.open("GET", endpoint, true);
-      req.onload = this.createCustomerOptions.bind(this);
-      req.send(null);
+    request.open("GET", endpoint, true);
+
+    this.log("Adding headers " + headers);
+
+    for (i=0; i<json_headers.length; i++){
+      request.setRequestHeader(json_headers[i].key,json_headers[i].value);
+    }
+
+    request.onload = this.createCustomerOptions.bind(this);
+    request.send(null);
   },
 
 
@@ -53,10 +63,9 @@ var popup = {
   populateCustomerData: function () {
 
         this.log("Entering showCustomerData");
-        var selectorObject = document.getElementById('customers');
-        var customerId = selectorObject.options[selectorObject.selectedIndex].value;
-
-        var customer = this.getCustomerById(customerId);
+        var selectorObject = document.getElementById('customers'),
+            customerId = selectorObject.options[selectorObject.selectedIndex].value,
+            customer = this.getCustomerById(customerId);
 
         document.getElementById('id').value = customer.id;
         document.getElementById('name').value = customer.name;
@@ -98,6 +107,12 @@ var popup = {
         this.log("phone: " + phone);
         this.log("email: " + email);
 
+        var tablink = '';
+        chrome.tabs.getSelected(null,function(tab) {
+          tablink = tab.url;
+        });
+
+        console.log(tablink);
 
         if (dhl_form === 'add_address') {
 
@@ -124,7 +139,11 @@ var popup = {
                 'document.getElementByName("consignee_temp_save")[0].checked = true;';
         } else {
             
-            var code = 'document.getElementById("consignee_temp.id").value = "' + id +'";'+
+            var code = 'var evt = document.createEvent("MouseEvents");'+
+                    'evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null); '+
+                    'var cb = document.getElementById("consignee_mode_other"); '+
+                    'cb.dispatchEvent(evt);'+
+                    'document.getElementById("consignee_temp.id").value = "' + id +'";'+
                     'document.getElementById("consignee_temp.name").value = "' + name +'";'+
                     'document.getElementById("consignee_temp.addressline[0]").value = "' + address +'";'+
                     'document.getElementById("consignee_temp.postcode").value = "' + zipcode +'";'+
