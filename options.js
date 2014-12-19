@@ -1,17 +1,14 @@
 
 var options =  {
 
+
+	/**
+    * Init the component
+    *
+    * @public
+    */
 	init: function () {
 
-		var header_fields = document.getElementsByClassName('header-input')
-			_this = this;
-
-		for (var i=0; i<header_fields.length; i++) {
-			header_fields[i].addEventListener('keyup', function () {
-				_this.setHeaders();
-			});	
-		}
-		
 		this.loadOptions();
 	},
 
@@ -26,7 +23,16 @@ var options =  {
 		var endpoint = localStorage['endpoint'],
 			debug = localStorage['debug'],
 			headers = localStorage['headers'],
-			form = localStorage['form'];
+			form = localStorage['form'],
+			header_fields = document.getElementsByClassName('header-input'),
+			_this = this;
+
+
+		for (var i=0; i<header_fields.length; i++) {
+			header_fields[i].addEventListener('keyup', function () {
+				_this.setHeaders();
+			});	
+		}
 
 		if (endpoint) {
 		  document.getElementById('endpoint').value = endpoint;
@@ -38,7 +44,6 @@ var options =  {
 
 		if (headers) {
 			var json = JSON.parse(headers),
-					header_fields = document.getElementsByClassName('header-input'),
 					field_pair = 0;
 
 					for (var i=0; i<json.length; i++){
@@ -198,24 +203,26 @@ var options =  {
 
 };
 
+/* Event listeners */
 
-document.addEventListener('DOMContentLoaded', function () {
-  options.init();
+$('document').ready( function() {
+ options.init();
 });
 
-document.getElementById('endpoint').addEventListener('keyup', function () {
-  options.setEndpoint();
+$('#endpoint').on('keyup', function() {
+	options.setEndpoint();
 });
 
-document.getElementById('debug').addEventListener('click', function () {
-  options.setDebugFlag();
+$('#debug').on('click', function() {
+	options.setDebugFlag();
 });
 
-document.getElementById('form').addEventListener('change', function () {
-  options.setForm();
+$('#form').on('change', function() {
+	options.setForm();
 });
 
-document.getElementById('test_connection').addEventListener('click', function () {
-  options.testConnection();
+$('#test_connection').on('click', function() {
+	options.testConnection();
 });
+
 
