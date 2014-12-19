@@ -205,6 +205,7 @@ var options =  {
 
 };
 
+
 /* Event listeners */
 
 $('document').ready( function() {

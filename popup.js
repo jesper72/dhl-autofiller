@@ -8,13 +8,30 @@ var popup = {
     */
   customers: null,
 
+  /**
+    * Variable to keep the current URL of the active tab
+    *
+    * @private
+    */
+  current_url: null,
 
-    /**
-    * Sends an XHR GET request to grab customers. The XHR's 'onload'
-    * event is hooks up to the 'createCustomerOptions' method through bind.
+
+  /**
+    * Init the component
     *
     * @public
     */
+  init: function () {
+    this.loadCustomers();
+  },
+
+
+  /**
+  * Sends an XHR GET request to grab customers. The XHR's 'onload'
+  * event is hooks up to the 'createCustomerOptions' method through bind.
+  *
+  * @public
+  */
   loadCustomers: function () {
 
     var request = new XMLHttpRequest(),
@@ -107,36 +124,23 @@ var popup = {
         this.log("phone: " + phone);
         this.log("email: " + email);
 
-        var tablink = '';
-        chrome.tabs.getSelected(null,function(tab) {
-          tablink = tab.url;
-        });
-
-        console.log(tablink);
+      
+        
+        
 
         if (dhl_form === 'add_address') {
 
              var code = 'document.getElementById("id").value = "' + id +'";'+
-                'document.getElementById("consignee_temp.id").value = "' + id +'";'+
                 'document.getElementById("name").value = "' + name +'";'+
-                'document.getElementById("consignee_temp.name").value = "' + name +'";'+
                 'document.getElementById("addressline.0").value = "' + address +'";'+
-                'document.getElementById("consignee_temp.addressline[0]").value = "' + address +'";'+
                 'document.getElementById("postcode").value = "' + zipcode +'";'+
-                'document.getElementById("consignee_temp.postcode").value = "' + zipcode +'";'+
                 'document.getElementById("city").value = "' + city +'";'+
-                'document.getElementById("consignee_temp.city").value = "' + city +'";'+
                 'document.getElementById("contactPerson").value = "' + name +'";'+
-                'document.getElementById("consignee_temp.contactPerson").value = "' + name +'";'+
-                'document.getElementById("mobile").value = "' + phone +'";'+
-                'document.getElementById("consignee_temp.mobile").value = "' + phone +'";'+
                 'document.getElementById("phone").value = "' + phone +'";'+
-                'document.getElementById("consignee_temp.phone").value = "' + phone +'";'+
+                'document.getElementById("mobile").value = "' + phone +'";'+
                 'document.getElementById("email").value = "' + email +'";'+
-                'document.getElementById("consignee_temp.email").value = "' + email +'";'+
                 'document.getElementById("type.consignee").checked = true;'+
-                'document.getElementById("type.notify").checked = true;'+
-                'document.getElementByName("consignee_temp_save")[0].checked = true;';
+                'document.getElementById("type.notify").checked = true;';
         } else {
             
             var code = 'var evt = document.createEvent("MouseEvents");'+
@@ -275,18 +279,21 @@ var popup = {
 
 };
 
-document.addEventListener('DOMContentLoaded', function () {
+
+/* Event listeners */
+
+$('document').ready(function() {
+  popup.init();
+});
+
+$('#reload').on('click', function() {
   popup.loadCustomers();
 });
 
-document.getElementById('reload').addEventListener('click', function () {
-  popup.loadCustomers();
-});
-
-document.getElementById('customers').addEventListener('change', function () {
+$('#customers').on('change', function() {
   popup.populateCustomerData();
 });
 
-document.getElementById('send_info').addEventListener('click', function () {
+$('#send_info').on('click', function() {
   popup.fillDhlForm();
 });
