@@ -1,0 +1,106 @@
+body {
+	min-width: 357px;
+	overflow-x: hidden;
+	font-size: 14px;
+}
+
+.customer-info {
+	height: 330px;
+}
+
+.customer-info input {
+	margin-top: 10px;
+	width: 80%;
+	font-size: 14px;
+	padding: 3px;
+}
+
+.customer-info button {
+	background-color: green;
+	color: #fff;
+	padding: 8px;
+	margin: 10px 0;
+	border: 1px solid darkGreen;
+	border-radius: 3px;
+	font-size: 14px;
+}
+
+.reload-icon {
+	width: 20px;
+	height: 20px;
+	margin-left: 10px;
+	border: none;
+	cursor: pointer;
+}
+
+.customers {
+	width: 150px;
+	padding: 4px;
+}
+
+.leading-icon {
+	width: 22px;
+}
+
+.error {
+	color:#ff0000;
+}
+
+.options {
+  min-width: 200px;
+}
+
+.options td {
+  padding: 12px 0;
+  vertical-align:top;
+}
+
+.endpoint_info {
+  margin-top: 20px;
+}
+
+.endpoint {
+  width: 300px;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.leading-icon {
+  width: 22px;
+}
+
+.test-connection {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.test-result {
+  margin: 10px 0 0 20px;
+  font-size: 12px;
+}
+
+.headers {
+  width: 300px;
+}
+
+label {
+  width: 100px;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 0 2px 2px 2px;
+  font-size: 14px;
+  width: 18px;  
+}
+
+.header-input {
+  margin: 0 10px 3px 0;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.credits {
+  color:#aaa;
+  font-size: 10px;
+}
