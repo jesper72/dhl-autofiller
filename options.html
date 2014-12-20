@@ -3,16 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>DHL Autofiller - Settings</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">  
   </head>
   <body>
     <h1><img src="img/icon-48.png" class="leading-icon"> DHL Autofiller</h1>
     <table class="options">
       <tr>
-        <td><label for="debug">Debugläge</label></td>
+        <td><label for="debug" data-resource="debugModeText">Debugläge</label></td>
         <td><input type="checkbox" id="debug"></td>
       </tr>
       <tr>
-        <td><label for="headers">HTTP Headers</label></td>
+        <td><label for="headers" data-resource="httpHeadersText">HTTP Headers</label></td>
         <td id="header_container">
           <input type="text" placeholder="key" data-type="key" class="header-input"><input type="text" data-type="value" placeholder="value" class="header-input"><br>
           <input type="text" placeholder="key" data-type="key" class="header-input"><input type="text" data-type="value" placeholder="value" class="header-input"><br>
@@ -21,13 +22,15 @@
       </tr>
       <tr>
         <td colspan=2>
-          <input type="text" id="endpoint" class="endpoint" placeholder="API Endpoint" /> <button id="test_connection" class="test-connection">Testa</button>
+          <input type="text" id="endpoint" class="endpoint" placeholder="API Endpoint" /> <button id="test_connection" class="test-connection" data-resource="testText">Testa</button>
           <span class="test-result" id="test_result"></span>
         </td>
       </tr>
     </table>
     <span class="credits">Svenssons Kod</span>
+
     <script src="js/zeptojs.js"></script>
+    <script src="js/translations.js"></script>
     <script src="js/options.js"></script>
   </body>
 </html>

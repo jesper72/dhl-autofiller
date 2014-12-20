@@ -1,0 +1,71 @@
+{
+  "debugModeText": {
+    "message": "Debugläge",
+    "description": "Text for debug mode button"
+  },
+  "extensionDescription": {
+  	"message": "Ett litet, fiffigt pluigin som gör det möjligt att autofilla DHLmultishippings kundformulär baserat på REST-data från ditt affärssystem.",
+  	"description": "Text for the manifest file"
+  },
+  "httpHeadersText": {
+    "message": "HTTP headers",
+    "description": "Text for HTTP headers label"
+  },
+  "testText": {
+    "message": "Testa",
+    "description": "Text for the test connection button"
+  },
+  "sendToFormText": {
+    "message": "Fyll i DHL-formuläret",
+    "description": "Text for the Fill out the form button"
+  },
+  "customerIDText": {
+  	"message": "KundID",
+  	"description": "Text for the Customer ID input placeholder"
+  },
+  "customerNameText": {
+  	"message": "Namn",
+  	"description": "Text for the Name  input placeholder"
+  },
+  "customerAddressText": {
+  	"message": "Adress",
+  	"description": "Text for the Address input placeholder"
+  },
+  "customerZipcodeText": {
+  	"message": "Postnummer",
+  	"description": "Text for the zipcode input placeholder"
+  },
+  "customerCityText": {
+  	"message": "Ort",
+  	"description": "Text for the city input placeholder"
+  },
+  "customerPhoneText": {
+  	"message": "Telefon",
+  	"description": "Text for the phone input placeholder"
+  },
+  "customerEmailText": {
+  	"message": "E-post",
+  	"description": "Text for the Email input placeholder"
+  },
+  "loadingCustomerText": {
+  	"message": "Laddar kunder...",
+  	"description": "Text for the loading customer option"
+  },
+  "noEndpointConfiguredText": {
+  	"message": "<br>Woppwopp, det verkar inte finnas någon endpoint konfigurerad. Gör det först och försök sedan igen!<br><br>",
+  	"description": "Text for the no-endpoint configured endpoint"
+  },
+  "selectCustomerText": {
+  	"message": "Välj kund",
+  	"description": "Text for the select customer option"
+  }
+
+
+
+
+
+
+
+
+
+}

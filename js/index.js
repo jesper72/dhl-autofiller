@@ -63,7 +63,8 @@ var popup = {
     var endpoint = localStorage['endpoint'];
 
     if (endpoint.length === 0) {
-        this.error("<br>Woppwopp, det verkar inte finnas någon endpoint konfigurerad. Gör det först och försök sedan igen!<br><br>");
+        var msg = chrome.i18n.getMessage("noEndpointConfiguredText");
+        this.error(msg);
         return;
     }
 
@@ -216,9 +217,9 @@ var popup = {
    * @param {String} customers.name
    */
   updateCustomerOptionsDOM: function( customers ){
-    var length, options, customer;
+    var length, options, customer, select_customer_msg = chrome.i18n.getMessage("selectCustomerText");
 
-    options = '<option value="">V&auml;lj kund</option>';
+    options = '<option value="">'+ select_customer_msg +'</option>';
     length = customers.length;
 
     Object.keys( customers ).forEach( function( key ){

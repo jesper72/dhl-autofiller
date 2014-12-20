@@ -1,0 +1,63 @@
+{
+  "debugModeText": {
+    "message": "Debug mode",
+    "description": "Text for debug mode button"
+  },
+  "extensionDescription": {
+  	"message": "A plugin for those of you that uses DHLMultishipping. The extension helps you to auto fill the customer forms based upon data from a json file.",
+  	"description": "Text for the manifest file"
+  },
+  "httpHeadersText": {
+    "message": "HTTP headers",
+    "description": "Text for HTTP headers label"
+  },
+  "testText": {
+    "message": "Test",
+    "description": "Text for the test connection button"
+  },
+  "sendToFormText": {
+    "message": "Fill out the DHL form",
+    "description": "Text for the Fill out the form button"
+  },
+  "customerIDText": {
+  	"message": "Customer ID",
+  	"description": "Text for the Customer ID input placeholder"
+  },
+  "customerNameText": {
+  	"message": "Name",
+  	"description": "Text for the Name  input placeholder"
+  },
+  "customerAddressText": {
+  	"message": "Address",
+  	"description": "Text for the Address input placeholder"
+  },
+  "customerZipcodeText": {
+  	"message": "Zipcode",
+  	"description": "Text for the zipcode input placeholder"
+  },
+  "customerCityText": {
+  	"message": "City",
+  	"description": "Text for the city input placeholder"
+  },
+  "customerPhoneText": {
+  	"message": "Phone",
+  	"description": "Text for the phone input placeholder"
+  },
+  "customerEmailText": {
+  	"message": "E-mail",
+  	"description": "Text for the Email input placeholder"
+  },
+  "loadingCustomerText": {
+  	"message": "Loading customers...",
+  	"description": "Text for the loading customer option"
+  },
+   "noEndpointConfiguredText": {
+  	"message": "<br>Oups, there is no enpoint configured. Please enter an endpoint in the options page and give it another try!<br><br>",
+  	"description": "Text for the no-endpoint configured endpoint"
+  },
+  "selectCustomerText": {
+  	"message": "Select customer",
+  	"description": "Text for the select customer option"
+  }
+
+}

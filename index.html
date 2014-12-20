@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>DHL Autofiller</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">  
   </head>
   <body>
     <h1><img src="img/icon-48.png" class="leading-icon"> DHL Autofiller</h1>
@@ -11,25 +11,27 @@
 
     <div class="input-fields">
       <select id="customers" class="customers">
-        <option value="">Laddar kunder...
+        <option value="" data-option="loadingCustomerText">Laddar kunder...
       </select>
 
       <img id="reload" src="img/reload.png" class="reload-icon" />
       
       <div class="customer-info" id="info">
-        <input id="id" placeholder="KundId" /><br>
-        <input id="name" placeholder="Namn" /><br>
-        <input id="address" placeholder="Adress" /><br>
-        <input id="zipcode" placeholder="Postnummer" /><br>
-        <input id="city" placeholder="Stad" /><br>
-        <input id="phone" placeholder="Telefonnummer" /><br>
-        <input id="email" placeholder="E-post" /><br>
-        <button id="send_info">Skicka till formuläret</button>
+        <input id="id" placeholder="KundId" data-placeholder="customerIDText" /><br>
+        <input id="name" placeholder="Namn" data-placeholder="customerNameText" /><br>
+        <input id="address" placeholder="Adress" data-placeholder="customerAddressText" /><br>
+        <input id="zipcode" placeholder="Postnummer" data-placeholder="customerZipcodeText" /><br>
+        <input id="city" placeholder="Stad" data-placeholder="customerCityText" /><br>
+        <input id="phone" placeholder="Telefonnummer" data-placeholder="customerPhoneText" /><br>
+        <input id="email" placeholder="E-post" data-placeholder="customerEmailText" /><br>
+        <button id="send_info" data-resource="sendToFormText">Skicka till formuläret</button>
       </div>
     </div>
     
     <span class="credits">Svenssons Kod</span>
+
     <script src="js/zeptojs.js"></script>
+    <script src="js/translations.js"></script>
     <script src="js/index.js"></script>
   </body>
 </html>
