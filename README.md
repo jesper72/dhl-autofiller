@@ -19,7 +19,7 @@ After a successful installation - a yellow icon with a red plus will show up nex
 * While on the DHL Multishippings create customer view - click the extension icon.
 * The extension will now load all customers available and populate a select
 * Selecting one of the customers will populate the extensions input fields allowing you to alter the information
-* Click *Skicka till formuläret* to populate the DHL form
+* Click *Fill out the DHL form* to populate the DHL form. The plugin recognize and support both the /transnet/register.do?method=view and /transnet/organisation.jsp?organisation=new pages.
 
 ## Required JSON feed
 
@@ -48,5 +48,5 @@ On the specified endpoint a JSON array of customers must be available through GE
 ```
 
 ## Limitations
-* The extension is only available in swedish
 * No tests available
+* No support for specific API formats
