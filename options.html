@@ -78,6 +78,11 @@
       .icon:hover{
         opacity: 0.7;
       }
+
+      .credits {
+        color:#aaa;
+        font-size: 10px;
+      }
     </style>
   </head>
   <body>
@@ -88,19 +93,8 @@
         <td><input type="checkbox" id="debug"></td>
       </tr>
       <tr>
-        <td><label for="form">DHL-formulär</label></td>
-        <td>
-          <select id="form">
-            <option value="add_address">Lägg till adress</option>
-            <option value="register_shipment">Registrera sändning</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
         <td><label for="headers">HTTP Headers</label></td>
         <td id="header_container">
-          <input type="text" placeholder="key" data-type="key" class="header-input"><input type="text" data-type="value" placeholder="value" class="header-input"><br>
-          <input type="text" placeholder="key" data-type="key" class="header-input"><input type="text" data-type="value" placeholder="value" class="header-input"><br>
           <input type="text" placeholder="key" data-type="key" class="header-input"><input type="text" data-type="value" placeholder="value" class="header-input"><br>
           <input type="text" placeholder="key" data-type="key" class="header-input"><input type="text" data-type="value" placeholder="value" class="header-input"><br>
           <input type="text" placeholder="key" data-type="key" class="header-input"><input type="text" data-type="value" placeholder="value" class="header-input"><br>
@@ -113,6 +107,7 @@
         </td>
       </tr>
     </table>
+    <span class="credits">Svenssons Kod</span>
     <script src="js/zeptojs.js"></script>
     <script src="js/options.js"></script>
   </body>

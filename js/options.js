@@ -23,7 +23,6 @@ var options =  {
 		var endpoint = localStorage['endpoint'],
 			debug = localStorage['debug'],
 			headers = localStorage['headers'],
-			form = localStorage['form'],
 			header_fields = document.getElementsByClassName('header-input'),
 			_this = this,
 			json, i;
@@ -45,22 +44,19 @@ var options =  {
 
 		if (headers) {
 			json = JSON.parse(headers),
-					field_pair = 0;
+				field_pair = 0;
 
-					for (i=0; i<json.length; i++){
-						var key = json[i].key,
-								value = json[i].value;
+				for (i=0; i<json.length; i++){
+					var key = json[i].key,
+							value = json[i].value;
 
-						header_fields[field_pair].value = key;
-						header_fields[field_pair +1].value = value;
+					header_fields[field_pair].value = key;
+					header_fields[field_pair +1].value = value;
 
-						field_pair += 2;
-					}
+					field_pair += 2;
+				}
 		}
 
-		if (form) {
-			document.getElementById('form').value = form;
-		}
 	},
 
 
@@ -120,18 +116,6 @@ var options =  {
 		localStorage['headers'] = json;
 	},
 
-
-	/**
-    * Store the value of the form field in local storage
-    *
-    * @public
-    */
-	setForm: function() {
-		var form = (document.getElementById('form').value);
-		localStorage['form'] = form; 
-
-		this.log('Persisted form setting in local localStorage with value ' + form);
-	},
 
 
 	/**
@@ -218,10 +202,6 @@ $('#endpoint').on('keyup', function() {
 
 $('#debug').on('click', function() {
 	options.setDebugFlag();
-});
-
-$('#form').on('change', function() {
-	options.setForm();
 });
 
 $('#test_connection').on('click', function() {
