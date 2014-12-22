@@ -14,62 +14,75 @@ var options =  {
 
 
 	/**
-    * Get the values from loacal storage and display the values
-    * in the input fields
+    * Get the values from loacal storage and send them to setOptionsDOM
     *
     * @public
+    * @return {Object} An object with endpoint, debug and headers read from localStorage
     */
 	loadOptions: function() {
 		var endpoint = localStorage['endpoint'],
 			debug = localStorage['debug'],
 			headers = localStorage['headers'],
-			header_fields = document.getElementsByClassName('header-input'),
-			_this = this,
-			json, i;
+			header_json;
+
+			header_json = JSON.parse(headers),
+			this.setOptionsDOM(endpoint, debug, header_json);
+
+			return {endpoint: endpoint, debug: debug, headers: headers};
+	},
 
 
-		for (var i=0; i<header_fields.length; i++) {
-			header_fields[i].addEventListener('keyup', function () {
-				_this.setHeaders();
-			});	
-		}
+	/**
+    * Set values in the DOM input fields
+    *
+    * @param {string} endpoint an url
+    * @param {string} debug boolean string
+    * @param {JSONArray} headers key value array
+    * @public
+    */
+	setOptionsDOM: function (endpoint, debug, headers) {
+		
+		var header_dom = $('.header-input'),
+				endpoint_dom = $('#endpoint'),
+				debug_dom = $('#debug'),
+				field_pair, i;
 
 		if (endpoint) {
-		  document.getElementById('endpoint').value = endpoint;
+		  endpoint_dom.val(endpoint);
 		}
-		
+
 		if (debug !== 'false') {
-			document.getElementById('debug').checked = true;
+			debug_dom.attr('checked', true);
 		}
 
 		if (headers) {
-			json = JSON.parse(headers),
 				field_pair = 0;
 
-				for (i=0; i<json.length; i++){
-					var key = json[i].key,
-							value = json[i].value;
+				for (i=0; i<headers.length; i++){
+					var key = headers[i].key,
+							value = headers[i].value;
 
-					header_fields[field_pair].value = key;
-					header_fields[field_pair +1].value = value;
+					header_dom[field_pair].value = key;
+					header_dom[field_pair +1].value = value;
 
 					field_pair += 2;
 				}
 		}
-
 	},
 
 
 	/**
     * Store the value of the endpoint field in local storage
     *
-    * @public
+    * @public  
+    * @param {string} endpoint an url
+    * @return {String} Endpoint value from localStorage
     */
-	setEndpoint: function() {
-		var endpoint = document.getElementById('endpoint').value;
+	setEndpoint: function(endpoint) {
 		localStorage['endpoint'] = endpoint; 
-
 		this.log('Persisted endpoint setting in local localStorage with value ' + endpoint);
+
+		return localStorage['endpoint'];
 	},
 
 
@@ -77,12 +90,14 @@ var options =  {
     * Store the value of the debug field in local storage
     *
     * @public
+    * @param {string} debug a boolean string value
+    * @return {String} Debug value from localStorage
     */
-	setDebugFlag: function() {
-		var debugFlag = (document.getElementById('debug').checked);
+	setDebugFlag: function(debug) {
 		localStorage['debug'] = debugFlag; 
-
 		this.log('Persisted debug setting in local localStorage with value ' + debugFlag);
+
+		return localStorage['debug'];
 	},
 
 
@@ -90,30 +105,32 @@ var options =  {
     * Store the value of the headers field in local storage
     *
     * @public
+    * @param {jQueryDOMObjects} jquery compatible array och DOM objects
+    * @return {String} Headers value from localStorage
     */
-	setHeaders: function() {
+	setHeaders: function(header_fields) {
 	
-		var header_fields = document.getElementsByClassName('header-input'),
-			header_data = [],
+		var header_data = [],
 			key, value, i, type, json;
-	
-		for (i=0; i<header_fields.length; i++){
-			type = header_fields[i].getAttribute('data-type');
 
-			if (type === 'key'){
-				key = header_fields[i].value;
+		$(header_fields).each(function() {
+			type = $(this).data('type');
+
+			if (type === 'key') {
+				key = $(this).val();
 			} else {
-				value = header_fields[i].value;
+				value = $(this).val();
 
 				if (key.length > 0 && value.length > 0) {
 					header_data.push({key: key, value: value});
 				}
 			}
-		}
+		});
 
 		json = JSON.stringify(header_data);
-
 		localStorage['headers'] = json;
+
+		return localStorage['headers'];
 	},
 
 
@@ -151,7 +168,7 @@ var options =  {
 	        }  
 	    }  
 		};  
-	    request.send(null);	
+	  request.send(null);	
 	},
 
 
@@ -160,7 +177,7 @@ var options =  {
     * Display the test result in the test_result object
     *
     * @param {string} message, a message to display
-    * @param {boolean} append, should the message be appended to the existing message or not
+    * @param {boolean} append, determines if the message shall be appended to the existing message or not
     * @public
     */
 	testResult: function (message, append) {
@@ -189,23 +206,5 @@ var options =  {
 
 };
 
-
-/* Event listeners */
-
-$('document').ready( function() {
- options.init();
-});
-
-$('#endpoint').on('keyup', function() {
-	options.setEndpoint();
-});
-
-$('#debug').on('click', function() {
-	options.setDebugFlag();
-});
-
-$('#test_connection').on('click', function() {
-	options.testConnection();
-});
 
 
