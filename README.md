@@ -48,5 +48,4 @@ On the specified endpoint a JSON array of customers must be available through GE
 ```
 
 ## Limitations
-* No tests available
-* No support for specific API formats
+* No support for specific API formats or protocols
