@@ -1,5 +1,5 @@
 /*
- *	replace the text attributes with strings from the translation resources
+ *  replace the text attributes with strings from the translation resources
  *
  **/
 $('[data-resource]').each(function() {
@@ -11,7 +11,7 @@ $('[data-resource]').each(function() {
 
 
 /*
- *	replace the placeholder values with strings from the translation resources
+ *  replace the placeholder values with strings from the translation resources
  *
  **/
 $('[data-placeholder]').each(function() {
@@ -23,7 +23,7 @@ $('[data-placeholder]').each(function() {
 
 
 /*
- *	replace the options values with text strings from the translation resources
+ *  replace the options values with text strings from the translation resources
  *
  **/
 $('[data-option]').each(function() {
