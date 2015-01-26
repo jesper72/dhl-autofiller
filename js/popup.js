@@ -145,7 +145,10 @@ var popup = {
         'document.getElementById("consignee_temp.mobile").value = "' + phone +'";'+
         'document.getElementById("consignee_temp.phone").value = "' + phone +'";'+
         'document.getElementById("consignee_temp.email").value = "' + email +'";'+
-        'document.getElementsByName("consignee_temp_save")[0].checked = true;';
+        'document.getElementsByName("consignee_temp_save")[0].checked = true;'+
+        'document.getElementsByName("templatePK")[0].value = 182880;'+
+        'document.getElementById("orderNo").value = "Jesper";'+
+        'document.getElementById("consigneeReference").value = "'+ name +'";';
     } else {
 
       var code = 'document.getElementById("id").value = "' + id +'";'+
