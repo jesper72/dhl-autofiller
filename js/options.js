@@ -7,7 +7,6 @@ var options =  {
     * Init the component
     */
   init: function () {
-
     this.load();
   },
 
@@ -22,11 +21,13 @@ var options =  {
     var endpoint = localStorage['endpoint'],
       debug = localStorage['debug'],
       headers = localStorage['headers'],
-      header_json = JSON.parse(headers);
+      header_json = JSON.parse(headers),
+      our_reference = localStorage['our_reference'],
+      dhl_service = localStorage['dhl_service'];
 
-    this.setOptionsDOM(endpoint, debug, header_json);
+    this.setOptionsDOM(endpoint, debug, header_json, our_reference, dhl_service);
 
-    return {endpoint: endpoint, debug: debug, headers: headers};
+    return {endpoint: endpoint, debug: debug, headers: headers, our_reference: our_reference, dhl_service: dhl_service};
   },
 
   /**
@@ -52,9 +53,9 @@ var options =  {
     * @param {string} debug a boolean string value
     * @return {String} Debug value from localStorage
     */
-  setDebugFlag: function(debugFlag) {
-    localStorage['debug'] = debugFlag; 
-    this.log('Persisted debug setting in local localStorage with value ' + debugFlag);
+  setDebugFlag: function(debug_flag) {
+    localStorage['debug'] = debug_flag; 
+    this.log('Persisted debug setting in local localStorage with value ' + debug_flag);
 
     return localStorage['debug'];
   },
@@ -90,6 +91,36 @@ var options =  {
     localStorage['headers'] = json;
 
     return localStorage['headers'];
+  },
+
+  /**
+  * @public
+  *
+    * Store the value of the our_reference field in local storage
+    *
+    * @param {string} our reference a string value
+    * @return {String} Our reference value from localStorage
+    */
+  setOurReference: function(our_reference) {
+    localStorage['our_reference'] = our_reference; 
+    this.log('Persisted our_reference setting in local localStorage with value ' + our_reference);
+
+    return localStorage['our_reference'];
+  },
+
+  /**
+  * @public
+  *
+    * Store the value of the dhl service field in local storage
+    *
+    * @param {string}  dhl service a numeric string value
+    * @return {String}  dhl service value from localStorage
+    */
+  setDefaultService: function(dhl_service) {
+    localStorage['dhl_service'] = dhl_service; 
+    this.log('Persisted dhl_service setting in local localStorage with value ' + dhl_service);
+
+    return localStorage['dhl_service'];
   },
 
   /**
@@ -137,11 +168,13 @@ var options =  {
     * @param {string} debug boolean string
     * @param {JSONArray} headers key value array
     */
-  setOptionsDOM: function (endpoint, debug, headers) {
+  setOptionsDOM: function (endpoint, debug, headers, our_reference, dhl_service) {
     
     var header_dom = $('.header-input'),
         endpoint_dom = $('#endpoint'),
         debug_dom = $('#debug'),
+        our_reference_dom = $('#our_reference'),
+        dhl_service_dom = $('#dhl_service'),
         field_pair, i;
 
     if (endpoint) {
@@ -164,6 +197,14 @@ var options =  {
 
           field_pair += 2;
         }
+    }
+
+    if (our_reference) {
+      our_reference_dom.val(our_reference);
+    }
+
+    if (dhl_service) {
+      dhl_service_dom.val(dhl_service)
     }
   },
 

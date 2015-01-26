@@ -16,6 +16,16 @@ if (typeof options !== 'undefined') {
 		options.setDebugFlag(debug);
 	});
 
+	$('#our_reference').on('keyup', function() {
+		var our_reference = $(this).val();
+		options.setOurReference(our_reference);
+	});
+
+	$('#dhl_service').on('change', function() {
+		var dhl_service = $(this).val();
+		options.setDefaultService(dhl_service);
+	});
+
 	$('#test_connection').on('click', function() {
 		options.testConnection();
 	});

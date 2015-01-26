@@ -115,7 +115,9 @@ var popup = {
         zipcode = $('#zipcode').val(),
         city = $('#city').val(),
         phone = $('#phone').val(),
-        email = $('#email').val();
+        email = $('#email').val(),
+        service = localStorage['dhl_service'],
+        our_reference = localStorage['our_reference'];
     
     this.getTabUrl();
 
@@ -146,8 +148,8 @@ var popup = {
         'document.getElementById("consignee_temp.phone").value = "' + phone +'";'+
         'document.getElementById("consignee_temp.email").value = "' + email +'";'+
         'document.getElementsByName("consignee_temp_save")[0].checked = true;'+
-        'document.getElementsByName("templatePK")[0].value = 182880;'+
-        'document.getElementById("orderNo").value = "Jesper";'+
+        'document.getElementsByName("templatePK")[0].value = "'+ service +'";'+
+        'document.getElementById("orderNo").value = "'+ our_reference +'";'+
         'document.getElementById("consigneeReference").value = "'+ name +'";';
     } else {
 

@@ -58,14 +58,13 @@
   "selectCustomerText": {
   	"message": "Välj kund",
   	"description": "Text for the select customer option"
+  },
+  "ourReferenceText": {
+    "message": "Vår referens",
+    "description": "Text for the our reference input field"
+  },
+  "dhlServiceText": {
+    "message": "Förvald DHL-tjänst",
+    "description": "Text for the default dhl service select box"
   }
-
-
-
-
-
-
-
-
-
 }
