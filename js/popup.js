@@ -134,7 +134,9 @@ var popup = {
   
     if (this.target_urls.register_shipment === this.current_url) {
 
-      var code = 'var evt = document.createEvent("MouseEvents");'+
+      var code = 'document.getElementsByName("templatePK")[0].value = "'+ service +'";'+       
+        'document.forms[0].submit();document.forms[0].templatePK.disabled=true;'+
+        'setTimeout(function() { var evt = document.createEvent("MouseEvents");'+
         'evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null); '+
         'var cb = document.getElementById("consignee_mode_other"); '+
         'cb.dispatchEvent(evt);'+
@@ -148,9 +150,9 @@ var popup = {
         'document.getElementById("consignee_temp.phone").value = "' + phone +'";'+
         'document.getElementById("consignee_temp.email").value = "' + email +'";'+
         'document.getElementsByName("consignee_temp_save")[0].checked = true;'+
-        'document.getElementsByName("templatePK")[0].value = "'+ service +'";'+
         'document.getElementById("orderNo").value = "'+ our_reference +'";'+
-        'document.getElementById("consigneeReference").value = "'+ name +'";';
+        'document.getElementById("consigneeReference").value = "'+ name +'";'+
+        '}, 1000);';
     } else {
 
       var code = 'document.getElementById("id").value = "' + id +'";'+
