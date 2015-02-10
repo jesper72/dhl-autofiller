@@ -30,6 +30,23 @@ var popup = {
   init: function () {
     this.getTabUrl();
     this.loadCustomers();
+    this.selectShippment();
+  },
+
+  /**
+  * @public
+  *
+  * Select service type in the DHL form
+  * 
+  */
+  selectShippment: function () {
+    var service = localStorage['dhl_service'],
+      code = 'document.getElementsByName("templatePK")[0].value = "'+ service +'";'+       
+          'document.forms[0].submit();document.forms[0].templatePK.disabled=true;';
+    
+    chrome.tabs.executeScript(null, {code: code}, function() {
+      this.log("selectShippment: executeScript response received");
+    });
   },
 
   /**
@@ -116,8 +133,8 @@ var popup = {
         city = $('#city').val(),
         phone = $('#phone').val(),
         email = $('#email').val(),
-        service = localStorage['dhl_service'],
-        our_reference = localStorage['our_reference'];
+        our_reference = localStorage['our_reference'],
+        goods_item = localStorage['goods_item'];
     
     this.getTabUrl();
 
@@ -134,9 +151,7 @@ var popup = {
   
     if (this.target_urls.register_shipment === this.current_url) {
 
-      var code = 'document.getElementsByName("templatePK")[0].value = "'+ service +'";'+       
-        'document.forms[0].submit();document.forms[0].templatePK.disabled=true;'+
-        'setTimeout(function() { var evt = document.createEvent("MouseEvents");'+
+      var code = 'var evt = document.createEvent("MouseEvents");'+
         'evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null); '+
         'var cb = document.getElementById("consignee_mode_other"); '+
         'cb.dispatchEvent(evt);'+
@@ -152,7 +167,11 @@ var popup = {
         'document.getElementsByName("consignee_temp_save")[0].checked = true;'+
         'document.getElementById("orderNo").value = "'+ our_reference +'";'+
         'document.getElementById("consigneeReference").value = "'+ name +'";'+
-        '}, 1000);';
+        'document.getElementById("goodsItemList.goodsItems[0].goodsItemReferences[1].value").value="'+ goods_item +'";'+
+        'var evt2 = document.createEvent("MouseEvents");'+
+        'evt2.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null); '+
+        'document.getElementsByName("notify")[0].dispatchEvent(evt2);'+
+        'document.getElementById("notifySmsValue").value = "'+ phone +'";';
     } else {
 
       var code = 'document.getElementById("id").value = "' + id +'";'+

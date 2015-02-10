@@ -8,6 +8,7 @@ test('loadOptions', function(){
 		debug = 'b',
 		our_reference = 'c',
 		dhl_service = 'd',
+		goods_item = 'e',
 		headers = '{"a": "b"}';
 
 	localStorage['endpoint'] = endpoint;
@@ -15,9 +16,10 @@ test('loadOptions', function(){
 	localStorage['headers'] = headers;
 	localStorage['our_reference'] = our_reference;
 	localStorage['dhl_service'] = dhl_service;
+	localStorage['goods_item'] = goods_item;
 
 	var response = options.load();
-	var expected_response = {endpoint: endpoint, debug: debug, headers: headers, our_reference: our_reference, dhl_service: dhl_service};
+	var expected_response = {endpoint: endpoint, debug: debug, headers: headers, our_reference: our_reference, dhl_service: dhl_service, goods_item: goods_item};
 
 	deepEqual(response, expected_response, 'Local storage data is loaded correctly');
 });
@@ -46,5 +48,11 @@ test('setDefaultService', function(){
 	var expected = '12345';
 	var response = options.setDefaultService('12345');
 	equal(expected, response, 'Default service is stored correctly in Local storage');
+});
+
+test('setGoodsItem', function(){
+	var expected = 'Nerf';
+	var response = options.setGoodsItem('Nerf');
+	equal(expected, response, 'Goods item is stored correctly in Local storage');
 });
 

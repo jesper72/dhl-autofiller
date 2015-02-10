@@ -66,5 +66,9 @@
   "dhlServiceText": {
     "message": "Förvald DHL-tjänst",
     "description": "Text for the default dhl service select box"
+  },
+  "goodsItemText": {
+    "message": "Varuslag",
+    "description": "Text for the goods item text box"
   }
 }

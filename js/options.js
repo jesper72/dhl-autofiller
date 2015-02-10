@@ -23,11 +23,12 @@ var options =  {
       headers = localStorage['headers'],
       header_json = JSON.parse(headers),
       our_reference = localStorage['our_reference'],
-      dhl_service = localStorage['dhl_service'];
+      dhl_service = localStorage['dhl_service'],
+      goods_item = localStorage['goods_item'];
 
-    this.setOptionsDOM(endpoint, debug, header_json, our_reference, dhl_service);
+    this.setOptionsDOM(endpoint, debug, header_json, our_reference, dhl_service, goods_item);
 
-    return {endpoint: endpoint, debug: debug, headers: headers, our_reference: our_reference, dhl_service: dhl_service};
+    return {endpoint: endpoint, debug: debug, headers: headers, our_reference: our_reference, dhl_service: dhl_service, goods_item: goods_item};
   },
 
   /**
@@ -125,6 +126,21 @@ var options =  {
 
   /**
   * @public
+  *
+    * Store the value of the goods item field in local storage
+    *
+    * @param {string}  goods item string value
+    * @return {String}  goods item value from localStorage
+    */
+  setGoodsItem: function(goods_item) {
+    localStorage['goods_item'] = goods_item; 
+    this.log('Persisted goods_item setting in local localStorage with value ' + goods_item);
+
+    return localStorage['goods_item'];
+  },
+
+  /**
+  * @public
   * 
     * Test the connection to the endpoint by sending an XHR
     * Calls this.testData on success
@@ -168,13 +184,14 @@ var options =  {
     * @param {string} debug boolean string
     * @param {JSONArray} headers key value array
     */
-  setOptionsDOM: function (endpoint, debug, headers, our_reference, dhl_service) {
+  setOptionsDOM: function (endpoint, debug, headers, our_reference, dhl_service, goods_item) {
     
     var header_dom = $('.header-input'),
         endpoint_dom = $('#endpoint'),
         debug_dom = $('#debug'),
         our_reference_dom = $('#our_reference'),
         dhl_service_dom = $('#dhl_service'),
+        goods_item_dom = $('#goods_item'),
         field_pair, i;
 
     if (endpoint) {
@@ -204,7 +221,11 @@ var options =  {
     }
 
     if (dhl_service) {
-      dhl_service_dom.val(dhl_service)
+      dhl_service_dom.val(dhl_service);
+    }
+
+    if (goods_item) {
+      goods_item_dom.val(goods_item);
     }
   },
 

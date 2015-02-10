@@ -26,6 +26,11 @@ if (typeof options !== 'undefined') {
 		options.setDefaultService(dhl_service);
 	});
 
+	$('#goods_item').on('keyup', function() {
+		var goods_item = $(this).val();
+		options.setGoodsItem(goods_item);
+	});
+
 	$('#test_connection').on('click', function() {
 		options.testConnection();
 	});

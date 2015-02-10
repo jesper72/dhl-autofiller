@@ -66,5 +66,9 @@
   "dhlServiceText": {
     "message": "Default DHL service",
     "description": "Text for the default dhl service select box"
+  },
+  "goodsItemText": {
+    "message": "Type of goods",
+    "description": "Text for the goods item text box"
   }
 }
