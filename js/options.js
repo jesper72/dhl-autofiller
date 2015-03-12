@@ -1,3 +1,4 @@
+/*global localStorage: false, console: false, $: false, chrome: false, XMLHttpRequest: false, window: false */
 
 var options =  {
 
@@ -17,14 +18,8 @@ var options =  {
     *
     * @return {Object} An object with endpoint, debug and headers read from localStorage
     */
-  load: function() {
-    var endpoint = localStorage['endpoint'],
-      debug = localStorage['debug'],
-      headers = localStorage['headers'],
-      header_json = JSON.parse(headers),
-      our_reference = localStorage['our_reference'],
-      dhl_service = localStorage['dhl_service'],
-      goods_item = localStorage['goods_item'];
+  load: function () {
+    var endpoint = localStorage.endpoint, debug = localStorage.debug, headers = localStorage.headers, header_json = JSON.parse(headers), our_reference = localStorage.our_reference, dhl_service = localStorage.dhl_service, goods_item = localStorage.goods_item;
 
     this.setOptionsDOM(endpoint, debug, header_json, our_reference, dhl_service, goods_item);
 
@@ -39,11 +34,11 @@ var options =  {
     * @param {string} endpoint an url
     * @return {String} Endpoint value from localStorage
     */
-  setEndpoint: function(endpoint) {
-    localStorage['endpoint'] = endpoint; 
+  setEndpoint: function (endpoint) {
+    localStorage.endpoint = endpoint;
     this.log('Persisted endpoint setting in local localStorage with value ' + endpoint);
 
-    return localStorage['endpoint'];
+    return localStorage.endpoint;
   },
 
   /**
@@ -54,11 +49,11 @@ var options =  {
     * @param {string} debug a boolean string value
     * @return {String} Debug value from localStorage
     */
-  setDebugFlag: function(debug_flag) {
-    localStorage['debug'] = debug_flag; 
+  setDebugFlag: function (debug_flag) {
+    localStorage.debug = debug_flag;
     this.log('Persisted debug setting in local localStorage with value ' + debug_flag);
 
-    return localStorage['debug'];
+    return localStorage.debug;
   },
 
   /**
@@ -69,12 +64,10 @@ var options =  {
     * @param {jQueryDOMObjects} jquery compatible array och DOM objects
     * @return {String} Headers value from localStorage
     */
-  setHeaders: function(header_fields) {
-  
-    var header_data = [],
-      key, value, i, type, json;
+  setHeaders: function (header_fields) {
+    var header_data = [], key, value, type, json;
 
-    $(header_fields).each(function() {
+    $(header_fields).each(function () {
       type = $(this).data('type');
 
       if (type === 'key') {
@@ -89,9 +82,9 @@ var options =  {
     });
 
     json = JSON.stringify(header_data);
-    localStorage['headers'] = json;
+    localStorage.headers = json;
 
-    return localStorage['headers'];
+    return localStorage.headers;
   },
 
   /**
@@ -102,11 +95,11 @@ var options =  {
     * @param {string} our reference a string value
     * @return {String} Our reference value from localStorage
     */
-  setOurReference: function(our_reference) {
-    localStorage['our_reference'] = our_reference; 
+  setOurReference: function (our_reference) {
+    localStorage.our_reference = our_reference;
     this.log('Persisted our_reference setting in local localStorage with value ' + our_reference);
 
-    return localStorage['our_reference'];
+    return localStorage.our_reference;
   },
 
   /**
@@ -117,11 +110,11 @@ var options =  {
     * @param {string}  dhl service a numeric string value
     * @return {String}  dhl service value from localStorage
     */
-  setDefaultService: function(dhl_service) {
-    localStorage['dhl_service'] = dhl_service; 
+  setDefaultService: function (dhl_service) {
+    localStorage.dhl_service = dhl_service;
     this.log('Persisted dhl_service setting in local localStorage with value ' + dhl_service);
 
-    return localStorage['dhl_service'];
+    return localStorage.dhl_service;
   },
 
   /**
@@ -132,11 +125,11 @@ var options =  {
     * @param {string}  goods item string value
     * @return {String}  goods item value from localStorage
     */
-  setGoodsItem: function(goods_item) {
-    localStorage['goods_item'] = goods_item; 
+  setGoodsItem: function (goods_item) {
+    localStorage.goods_item = goods_item;
     this.log('Persisted goods_item setting in local localStorage with value ' + goods_item);
 
-    return localStorage['goods_item'];
+    return localStorage.goods_item;
   },
 
   /**
@@ -144,35 +137,28 @@ var options =  {
   * 
     * Test the connection to the endpoint by sending an XHR
     * Calls this.testData on success
-    */ 
-  testConnection: function() {
-    
-    var endpoint = localStorage['endpoint'],
-      _this = this,
-      request = new XMLHttpRequest(),
-      headers = localStorage['headers'],
-      json_headers = JSON.parse(headers),
-      i;
-
+    */
+  testConnection: function () {
+    var endpoint = localStorage.endpoint, _this = this, request = new XMLHttpRequest(), headers = localStorage.headers, json_headers = JSON.parse(headers), i;
     this.testResult('');
-
     request.open("GET", endpoint, true);
 
-    for (i=0; i<json_headers.length; i++){
-      request.setRequestHeader(json_headers[i].key,json_headers[i].value);
+    for (i = 0; i < json_headers.length; i++) {
+      request.setRequestHeader(json_headers[i].key, json_headers[i].value);
     }
 
-      request.onreadystatechange = function (oEvent) {  
-      if (request.readyState === 4) {  
-          if (request.status === 200) {  
-            _this.testResult('OK', true);     
-          } else {  
-             _this.log('XMLHttpRequest threw error '+ request.statusText);  
-             _this.testResult('Fail', true);           
-          }  
-      }  
-    };  
-    request.send(null); 
+    request.onreadystatechange = function () {
+      if (request.readyState === 4) {
+        if (request.status === 200) {
+          _this.testResult('OK', true);
+        } else {
+          _this.log('XMLHttpRequest threw error ' + request.statusText);
+          _this.testResult('Fail', true);
+        }
+      }
+    };
+
+    request.send(null);
   },
 
   /**
@@ -185,14 +171,8 @@ var options =  {
     * @param {JSONArray} headers key value array
     */
   setOptionsDOM: function (endpoint, debug, headers, our_reference, dhl_service, goods_item) {
-    
-    var header_dom = $('.header-input'),
-        endpoint_dom = $('#endpoint'),
-        debug_dom = $('#debug'),
-        our_reference_dom = $('#our_reference'),
-        dhl_service_dom = $('#dhl_service'),
-        goods_item_dom = $('#goods_item'),
-        field_pair, i;
+
+    var header_dom = $('.header-input'), endpoint_dom = $('#endpoint'), debug_dom = $('#debug'), our_reference_dom = $('#our_reference'), dhl_service_dom = $('#dhl_service'), goods_item_dom = $('#goods_item'), field_pair, i, key, value;
 
     if (endpoint) {
       endpoint_dom.val(endpoint);
@@ -203,17 +183,17 @@ var options =  {
     }
 
     if (headers) {
-        field_pair = 0;
+      field_pair = 0;
 
-        for (i=0; i<headers.length; i++){
-          var key = headers[i].key,
-              value = headers[i].value;
+      for (i = 0; i < headers.length; i++) {
+        key = headers[i].key;
+        value = headers[i].value;
 
-          header_dom[field_pair].value = key;
-          header_dom[field_pair +1].value = value;
+        header_dom[field_pair].value = key;
+        header_dom[field_pair + 1].value = value;
 
-          field_pair += 2;
-        }
+        field_pair += 2;
+      }
     }
 
     if (our_reference) {
@@ -252,9 +232,9 @@ var options =  {
     * the window.console
     *
     * @param {string} message, the message to be logged
-    */   
-  log: function(message) {
-    debug = localStorage['debug'];
+    */
+  log: function (message) {
+    var debug = localStorage.debug;
 
     if (debug === 'true') {
       window.console.log(message);
