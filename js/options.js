@@ -105,21 +105,6 @@ var options =  {
   /**
   * @public
   *
-    * Store the value of the dhl service field in local storage
-    *
-    * @param {string}  dhl service a numeric string value
-    * @return {String}  dhl service value from localStorage
-    */
-  setDefaultService: function (dhl_service) {
-    localStorage.dhl_service = dhl_service;
-    this.log('Persisted dhl_service setting in local localStorage with value ' + dhl_service);
-
-    return localStorage.dhl_service;
-  },
-
-  /**
-  * @public
-  *
     * Store the value of the goods item field in local storage
     *
     * @param {string}  goods item string value

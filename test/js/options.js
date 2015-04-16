@@ -44,12 +44,6 @@ test('setOurReference', function(){
 	equal(expected, response, 'Our reference is stored correctly in Local storage');
 });
 
-test('setDefaultService', function(){
-	var expected = '12345';
-	var response = options.setDefaultService('12345');
-	equal(expected, response, 'Default service is stored correctly in Local storage');
-});
-
 test('setGoodsItem', function(){
 	var expected = 'Nerf';
 	var response = options.setGoodsItem('Nerf');

@@ -20,11 +20,6 @@ var our_reference = $(this).val();
 options.setOurReference(our_reference);
 });
 
-$('#dhl_service').on('change', function () {
-var dhl_service = $(this).val();
-options.setDefaultService(dhl_service);
-});
-
 $('#goods_item').on('keyup', function () {
 var goods_item = $(this).val();
 options.setGoodsItem(goods_item);

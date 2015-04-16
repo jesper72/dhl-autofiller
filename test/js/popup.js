@@ -19,7 +19,8 @@ test('parseResposetextToCustomers', function() {
 	    "zipcode": "12345",
 	    "city": "Växjö",
 	    "email": "svejes@gmail.com",
-	    "phone": "1029384746"
+	    "phone": "1029384746",
+	    "shipping": "DHL Servicepoint"
 	  },
 	  {
 	    "id": "2",
@@ -28,7 +29,8 @@ test('parseResposetextToCustomers', function() {
 	    "zipcode": "12345",
 	    "city": "Knäckebrödhult",
 	    "email": "",
-	    "phone": "012345678"
+	    "phone": "012345678",
+	    "shipping": "DHL Paket"
 	  }
 	];
 
@@ -53,7 +55,8 @@ test('getCustomerById', function() {
 	    "zipcode": "12345",
 	    "city": "Växjö",
 	    "email": "svejes@gmail.com",
-	    "phone": "1029384746"
+	    "phone": "1029384746",
+	    "shipping": "DHL Servicepoint"
 	  },
 	  {
 	    "id": "2",
@@ -62,7 +65,8 @@ test('getCustomerById', function() {
 	    "zipcode": "12345",
 	    "city": "Knäckebrödhult",
 	    "email": "",
-	    "phone": "012345678"
+	    "phone": "012345678",
+	    "shipping": "DHL Servicepoint"
 	  }
 	];
 
@@ -74,4 +78,21 @@ test('getCustomerById', function() {
 	
   var response = popup.getCustomerById(2);
 	deepEqual(expected_response, response, 'Customer with ID 2 is returned');
+});
+
+
+test('getShippingServiecByNameDHLPaket', function() {
+
+	var shipping_name = 'DHL Paket', expected_response = 182875;
+	var response = popup.getShippingServiecByName(shipping_name);		
+
+	equal(expected_response, response, 'Shipping service for DHL Paket was returned');	
+});
+
+test('getShippingServiecByNameDHLServicepoint', function() {
+
+	var shipping_name = 'DHL Servicepoint', expected_response = 182880;
+	var response = popup.getShippingServiecByName(shipping_name);		
+
+	equal(expected_response, response, 'Shipping service for DHL Servicepoint was returned');	
 });

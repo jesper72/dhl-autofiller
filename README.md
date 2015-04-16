@@ -33,7 +33,8 @@ On the specified endpoint a JSON array of customers must be available through GE
     "zipcode": "12345",
     "city": "Växjö",
     "email": "svejes@gmail.com",
-    "phone": "1029384746"
+    "phone": "1029384746",
+    "shipping": "DHL Paket"
   },
   {
     "id": "2",
@@ -42,7 +43,8 @@ On the specified endpoint a JSON array of customers must be available through GE
     "zipcode": "12345",
     "city": "Knäckebrödhult",
     "email": "",
-    "phone": "012345678"
+    "phone": "012345678",
+    "shipping": "DHL Servicepoint"
   }
 ]
 ```

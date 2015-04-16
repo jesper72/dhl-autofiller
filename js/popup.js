@@ -24,6 +24,14 @@ var popup = {
   target_urls: {register_shipment: 'http://www.dhlmultishipping.se/transnet/register.do?method=view', add_address: 'http://www.dhlmultishipping.se/transnet/organisation.jsp?organisation=new'},
 
   /**
+    * @private
+    *
+    * Variable to hold the congiguration for the different shippment types received from the json feed and
+    * match them to DHL-ID:s
+    */
+  shippment_services: [{'name': 'DHL Paket', 'id': '182875'}, {'name': 'DHL Servicepoint', 'id': '182880'}],
+
+  /**
     * @public 
     *
     * Init the component
@@ -31,7 +39,6 @@ var popup = {
   init: function () {
     this.getTabUrl();
     this.loadCustomers();
-    this.selectShippment();
   },
 
   /**
@@ -40,9 +47,10 @@ var popup = {
   * Select service type in the DHL form
   * 
   */
-  selectShippment: function () {
-    var service = localStorage.dhl_service,
-      code = 'if (document.getElementsByName("templatePK")[0].value != "' + service + '") {' +
+  selectShippment: function (shippment_service) {
+
+    var service = this.getShippingServiecByName(shippment_service);
+    var code = 'if (document.getElementsByName("templatePK")[0].value != "' + service + '") {' +
         'document.getElementsByName("templatePK")[0].value = "' + service + '";' +
         'document.forms[0].submit();document.forms[0].templatePK.disabled=true;' +
         '}';
@@ -105,6 +113,7 @@ var popup = {
 
     this.log("Entering populateCustomerData");
 
+    this.selectShippment(customer.shipping);
     $('#id').val(customer.id);
     $('#name').val(customer.name);
     $('#address').val(customer.address);
@@ -168,6 +177,22 @@ var popup = {
     chrome.tabs.executeScript(null, {code: code}, function () {
       this.log("executeScript response received");
     });
+  },
+
+  /**
+    * @private
+    *
+    * Get the Shipping Service ID based upon the name service name
+    */
+  getShippingServiecByName: function (shippment_service_name) {
+    var service = '', i;
+    for (i = 0; i < this.shippment_services.length; i++) {
+      if (this.shippment_services[i].name === shippment_service_name) {
+        service = this.shippment_services[i].id;
+        break;
+      }
+    }
+    return service;
   },
 
   /**
