@@ -3,8 +3,8 @@
 var options =  {
 
   /**
-    * @public 
-    * 
+    * @public
+    *
     * Init the component
     */
   init: function () {
@@ -13,7 +13,7 @@ var options =  {
 
   /**
   * @public
-    * 
+    *
     * Get the values from loacal storage and send them to setOptionsDOM
     *
     * @return {Object} An object with endpoint, debug and headers read from localStorage
@@ -37,7 +37,6 @@ var options =  {
   setEndpoint: function (endpoint) {
     localStorage.endpoint = endpoint;
     this.log('Persisted endpoint setting in local localStorage with value ' + endpoint);
-
     return localStorage.endpoint;
   },
 
@@ -58,7 +57,7 @@ var options =  {
 
   /**
   * @public
-  * 
+  *
     * Store the value of the headers field in local storage
     *
     * @param {jQueryDOMObjects} jquery compatible array och DOM objects
@@ -119,7 +118,7 @@ var options =  {
 
   /**
   * @public
-  * 
+  *
     * Test the connection to the endpoint by sending an XHR
     * Calls this.testData on success
     */
@@ -196,7 +195,7 @@ var options =  {
 
   /**
   * @private
-  * 
+  *
     * Display the test result in the test_result object
     *
     * @param {string} message, a message to display
@@ -213,7 +212,7 @@ var options =  {
   /**
   * @private
   *
-    * If the setting Debug is enabled - we pass on the message to 
+    * If the setting Debug is enabled - we pass on the message to
     * the window.console
     *
     * @param {string} message, the message to be logged
