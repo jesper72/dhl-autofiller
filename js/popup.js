@@ -32,7 +32,7 @@ var popup = {
   shippment_services: [{'name': 'DHL Paket', 'id': '182875'}, {'name': 'DHL Servicepoint', 'id': '182880'}],
 
   /**
-    * @public 
+    * @public
     *
     * Init the component
     */
@@ -55,9 +55,7 @@ var popup = {
         'document.forms[0].submit();document.forms[0].templatePK.disabled=true;' +
         '}';
 
-    chrome.tabs.executeScript(null, {code: code}, function () {
-      this.log("selectShippment: executeScript response received");
-    });
+    chrome.tabs.executeScript(null, {code: code});
   },
 
   /**
@@ -69,8 +67,6 @@ var popup = {
   loadCustomers: function () {
 
     var request = new XMLHttpRequest(), headers = localStorage.headers, json_headers = JSON.parse(headers), i;
-
-    this.log("Entering loadCustomers");
 
     // Reset the input fields
     $('#id').val('');
@@ -88,12 +84,7 @@ var popup = {
       this.error(msg);
       return;
     }
-
-    this.log("Endpoint is " + endpoint + " opening XMLHttpRequest");
-
     request.open("GET", endpoint, true);
-
-    this.log("Adding headers " + headers);
 
     for (i = 0; i < json_headers.length; i++) {
       request.setRequestHeader(json_headers[i].key, json_headers[i].value);
@@ -111,8 +102,6 @@ var popup = {
   populateCustomerData: function () {
     var customerId = $('#customers').val(), customer = this.getCustomerById(customerId);
 
-    this.log("Entering populateCustomerData");
-
     this.selectShippment(customer.shipping);
     $('#id').val(customer.id);
     $('#name').val(customer.name);
@@ -121,7 +110,6 @@ var popup = {
     $('#city').val(customer.city);
     $('#phone').val(customer.phone);
     $('#email').val(customer.email);
-
   },
 
   /**
@@ -135,8 +123,6 @@ var popup = {
 
     var id = $('#id').val(), name = $('#name').val(), address = $('#address').val(), zipcode = $('#zipcode').val(), city = $('#city').val(), phone = $('#phone').val(), email = $('#email').val(), our_reference = localStorage.our_reference, goods_item = localStorage.goods_item, code;
     this.getTabUrl();
-
-    this.log("Entering fillDhlForm");
 
     if (this.target_urls.register_shipment === this.current_url) {
       code = 'var evt = document.createEvent("MouseEvents");' +
@@ -173,10 +159,7 @@ var popup = {
         'document.getElementById("type.consignee").checked = true;' +
         'document.getElementById("type.notify").checked = true;';
     }
-    this.log("target_url: " + this.current_url + ", code: " + code);
-    chrome.tabs.executeScript(null, {code: code}, function () {
-      this.log("executeScript response received");
-    });
+    chrome.tabs.executeScript(null, {code: code});
   },
 
   /**
@@ -203,8 +186,6 @@ var popup = {
   getTabUrl: function () {
     var _this = this;
 
-    this.log("Entering getTabUrl");
-
     chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
       _this.current_url = tabs[0].url;
     });
@@ -219,8 +200,6 @@ var popup = {
     * @return {JSONobject} customer
     */
   getCustomerById: function (id) {
-    this.log("Entering getCustomerById", id);
-
     return this.customers[id];
   },
 
@@ -238,16 +217,12 @@ var popup = {
   updateCustomerOptionsDOM: function (customers) {
     var options, customer, select_customer_msg = chrome.i18n.getMessage("selectCustomerText");
 
-    this.log("Entering updateCustomerOptionsDOM");
-
     options = '<option value="">' + select_customer_msg + '</option>';
 
     Object.keys(customers).forEach(function (key) {
       customer = customers[key];
       options += '<option value="' + customer.id + '">' + customer.name + '</option>';
     });
-
-    this.log('options are', options);
 
     $('#customers').html(options);
   },
@@ -263,7 +238,6 @@ var popup = {
    */
   parseResposetextToCustomers: function (responseText) {
     var customerArray, customers;
-    this.log("Entering parseResposetextToCustomers");
 
     customerArray = JSON.parse(responseText);
     customers = {};
@@ -285,8 +259,6 @@ var popup = {
   createCustomerOptions: function (event) {
     var responseText, customers;
 
-    this.log("Entering createCustomerOptions");
-
     responseText = event.target.responseText;
     customers = this.parseResposetextToCustomers(responseText);
     this.updateCustomerOptionsDOM(customers);
@@ -302,24 +274,7 @@ var popup = {
   */
   error: function (message) {
     var errorContainer = $('#error');
-    this.log("Error: " + message);
     errorContainer.html(message);
-  },
-
-  /**
-  * @private
-  *
-  * If the setting Debug is enabled - we pass on the message to
-  * the window.console
-  *
-  * @param {string} message, the message to be logged
-  */
-  log: function (message) {
-    var debug = localStorage.debug;
-
-    if (debug === 'true') {
-      window.console.log(message);
-    }
   }
 
 };

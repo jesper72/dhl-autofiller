@@ -12,6 +12,17 @@ The Chrome plugin auto populates the customer form on dhlmultishipping (http://w
 
 The extension is now installed. Click Options to enter the URL to your enpoint
 
+## Development using Gulp
+
+Run npm install. 
+Develop will start a watcher that builds bundle.js with sourcemaps on changes.
+Production will run tests and jshint, if it doesn't fail it will build an uglified bundle.min.js.
+For development:
+'''$ gulp'''
+
+And production:
+'''$ gulp prod'''
+
 ## Usage
 
 After a successful installation - a yellow icon with a red plus will show up next to the URL field.

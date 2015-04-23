@@ -16,14 +16,12 @@ var options =  {
     *
     * Get the values from loacal storage and send them to setOptionsDOM
     *
-    * @return {Object} An object with endpoint, debug and headers read from localStorage
+    * @return {Object} An object with endpoint, headers, our reference and goods item read from localStorage
     */
   load: function () {
-    var endpoint = localStorage.endpoint, debug = localStorage.debug, headers = localStorage.headers, header_json = JSON.parse(headers), our_reference = localStorage.our_reference, dhl_service = localStorage.dhl_service, goods_item = localStorage.goods_item;
-
-    this.setOptionsDOM(endpoint, debug, header_json, our_reference, dhl_service, goods_item);
-
-    return {endpoint: endpoint, debug: debug, headers: headers, our_reference: our_reference, dhl_service: dhl_service, goods_item: goods_item};
+    var endpoint = localStorage.endpoint, headers = localStorage.headers, header_json = JSON.parse(headers), our_reference = localStorage.our_reference, goods_item = localStorage.goods_item;
+    this.setOptionsDOM(endpoint, header_json, our_reference, goods_item);
+    return {endpoint: endpoint, headers: headers, our_reference: our_reference, goods_item: goods_item};
   },
 
   /**
@@ -36,23 +34,7 @@ var options =  {
     */
   setEndpoint: function (endpoint) {
     localStorage.endpoint = endpoint;
-    this.log('Persisted endpoint setting in local localStorage with value ' + endpoint);
     return localStorage.endpoint;
-  },
-
-  /**
-  * @public
-  *
-    * Store the value of the debug field in local storage
-    *
-    * @param {string} debug a boolean string value
-    * @return {String} Debug value from localStorage
-    */
-  setDebugFlag: function (debug_flag) {
-    localStorage.debug = debug_flag;
-    this.log('Persisted debug setting in local localStorage with value ' + debug_flag);
-
-    return localStorage.debug;
   },
 
   /**
@@ -96,8 +78,6 @@ var options =  {
     */
   setOurReference: function (our_reference) {
     localStorage.our_reference = our_reference;
-    this.log('Persisted our_reference setting in local localStorage with value ' + our_reference);
-
     return localStorage.our_reference;
   },
 
@@ -111,8 +91,6 @@ var options =  {
     */
   setGoodsItem: function (goods_item) {
     localStorage.goods_item = goods_item;
-    this.log('Persisted goods_item setting in local localStorage with value ' + goods_item);
-
     return localStorage.goods_item;
   },
 
@@ -136,7 +114,6 @@ var options =  {
         if (request.status === 200) {
           _this.testResult('OK', true);
         } else {
-          _this.log('XMLHttpRequest threw error ' + request.statusText);
           _this.testResult('Fail', true);
         }
       }
@@ -151,19 +128,16 @@ var options =  {
     * Set values in the DOM input fields
     *
     * @param {string} endpoint an url
-    * @param {string} debug boolean string
     * @param {JSONArray} headers key value array
+    * @param {string} name to be defaulted in the Our reference field
+    * @param {string} type of goods that will be defaulted in the Type of goods field
     */
-  setOptionsDOM: function (endpoint, debug, headers, our_reference, dhl_service, goods_item) {
+  setOptionsDOM: function (endpoint, headers, our_reference, goods_item) {
 
-    var header_dom = $('.header-input'), endpoint_dom = $('#endpoint'), debug_dom = $('#debug'), our_reference_dom = $('#our_reference'), dhl_service_dom = $('#dhl_service'), goods_item_dom = $('#goods_item'), field_pair, i, key, value;
+    var header_dom = $('.header-input'), endpoint_dom = $('#endpoint'), our_reference_dom = $('#our_reference'), goods_item_dom = $('#goods_item'), field_pair, i, key, value;
 
     if (endpoint) {
       endpoint_dom.val(endpoint);
-    }
-
-    if (debug !== 'false') {
-      debug_dom.attr('checked', true);
     }
 
     if (headers) {
@@ -182,10 +156,6 @@ var options =  {
 
     if (our_reference) {
       our_reference_dom.val(our_reference);
-    }
-
-    if (dhl_service) {
-      dhl_service_dom.val(dhl_service);
     }
 
     if (goods_item) {
@@ -207,23 +177,8 @@ var options =  {
     } else {
       $('#test_result').html(message);
     }
-  },
-
-  /**
-  * @private
-  *
-    * If the setting Debug is enabled - we pass on the message to
-    * the window.console
-    *
-    * @param {string} message, the message to be logged
-    */
-  log: function (message) {
-    var debug = localStorage.debug;
-
-    if (debug === 'true') {
-      window.console.log(message);
-    }
   }
+
 };
 
 

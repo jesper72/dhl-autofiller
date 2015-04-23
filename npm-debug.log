@@ -1,0 +1,929 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose readDependencies using package.json deps
+5 verbose install where, deps [ '/Users/Jesper.Svensson/dhl-autofiller',
+5 verbose install   [ 'gulp',
+5 verbose install     'gulp-concat',
+5 verbose install     'gulp-jshint',
+5 verbose install     'gulp-notify',
+5 verbose install     'gulp-qunit',
+5 verbose install     'gulp-sourcemaps',
+5 verbose install     'gulp-task-listing',
+5 verbose install     'gulp-uglify' ] ]
+6 info preinstall dhl-autofiller@1.0.0
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'gulp@^3.8.11', null ]
+9 verbose cache add name=undefined spec="gulp@^3.8.11" args=["gulp@^3.8.11",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'gulp@^3.8.11',
+10 verbose parsed url   path: 'gulp@^3.8.11',
+10 verbose parsed url   href: 'gulp@^3.8.11' }
+11 verbose cache add [ 'gulp-concat@^2.5.2', null ]
+12 verbose cache add name=undefined spec="gulp-concat@^2.5.2" args=["gulp-concat@^2.5.2",null]
+13 verbose parsed url { protocol: null,
+13 verbose parsed url   slashes: null,
+13 verbose parsed url   auth: null,
+13 verbose parsed url   host: null,
+13 verbose parsed url   port: null,
+13 verbose parsed url   hostname: null,
+13 verbose parsed url   hash: null,
+13 verbose parsed url   search: null,
+13 verbose parsed url   query: null,
+13 verbose parsed url   pathname: 'gulp-concat@^2.5.2',
+13 verbose parsed url   path: 'gulp-concat@^2.5.2',
+13 verbose parsed url   href: 'gulp-concat@^2.5.2' }
+14 verbose cache add [ 'gulp-jshint@^1.10.0', null ]
+15 verbose cache add name=undefined spec="gulp-jshint@^1.10.0" args=["gulp-jshint@^1.10.0",null]
+16 verbose parsed url { protocol: null,
+16 verbose parsed url   slashes: null,
+16 verbose parsed url   auth: null,
+16 verbose parsed url   host: null,
+16 verbose parsed url   port: null,
+16 verbose parsed url   hostname: null,
+16 verbose parsed url   hash: null,
+16 verbose parsed url   search: null,
+16 verbose parsed url   query: null,
+16 verbose parsed url   pathname: 'gulp-jshint@^1.10.0',
+16 verbose parsed url   path: 'gulp-jshint@^1.10.0',
+16 verbose parsed url   href: 'gulp-jshint@^1.10.0' }
+17 verbose cache add [ 'gulp-notify@^2.2.0', null ]
+18 verbose cache add name=undefined spec="gulp-notify@^2.2.0" args=["gulp-notify@^2.2.0",null]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: 'gulp-notify@^2.2.0',
+19 verbose parsed url   path: 'gulp-notify@^2.2.0',
+19 verbose parsed url   href: 'gulp-notify@^2.2.0' }
+20 verbose cache add name="gulp" spec="^3.8.11" args=["gulp","^3.8.11"]
+21 verbose parsed url { protocol: null,
+21 verbose parsed url   slashes: null,
+21 verbose parsed url   auth: null,
+21 verbose parsed url   host: null,
+21 verbose parsed url   port: null,
+21 verbose parsed url   hostname: null,
+21 verbose parsed url   hash: null,
+21 verbose parsed url   search: null,
+21 verbose parsed url   query: null,
+21 verbose parsed url   pathname: '^3.8.11',
+21 verbose parsed url   path: '^3.8.11',
+21 verbose parsed url   href: '^3.8.11' }
+22 verbose addNamed [ 'gulp', '^3.8.11' ]
+23 verbose addNamed [ null, '>=3.8.11-0 <4.0.0-0' ]
+24 verbose cache add name="gulp-concat" spec="^2.5.2" args=["gulp-concat","^2.5.2"]
+25 verbose parsed url { protocol: null,
+25 verbose parsed url   slashes: null,
+25 verbose parsed url   auth: null,
+25 verbose parsed url   host: null,
+25 verbose parsed url   port: null,
+25 verbose parsed url   hostname: null,
+25 verbose parsed url   hash: null,
+25 verbose parsed url   search: null,
+25 verbose parsed url   query: null,
+25 verbose parsed url   pathname: '^2.5.2',
+25 verbose parsed url   path: '^2.5.2',
+25 verbose parsed url   href: '^2.5.2' }
+26 verbose addNamed [ 'gulp-concat', '^2.5.2' ]
+27 verbose addNamed [ null, '>=2.5.2-0 <3.0.0-0' ]
+28 verbose cache add name="gulp-jshint" spec="^1.10.0" args=["gulp-jshint","^1.10.0"]
+29 verbose parsed url { protocol: null,
+29 verbose parsed url   slashes: null,
+29 verbose parsed url   auth: null,
+29 verbose parsed url   host: null,
+29 verbose parsed url   port: null,
+29 verbose parsed url   hostname: null,
+29 verbose parsed url   hash: null,
+29 verbose parsed url   search: null,
+29 verbose parsed url   query: null,
+29 verbose parsed url   pathname: '^1.10.0',
+29 verbose parsed url   path: '^1.10.0',
+29 verbose parsed url   href: '^1.10.0' }
+30 verbose addNamed [ 'gulp-jshint', '^1.10.0' ]
+31 verbose addNamed [ null, '>=1.10.0-0 <2.0.0-0' ]
+32 verbose cache add name="gulp-notify" spec="^2.2.0" args=["gulp-notify","^2.2.0"]
+33 verbose parsed url { protocol: null,
+33 verbose parsed url   slashes: null,
+33 verbose parsed url   auth: null,
+33 verbose parsed url   host: null,
+33 verbose parsed url   port: null,
+33 verbose parsed url   hostname: null,
+33 verbose parsed url   hash: null,
+33 verbose parsed url   search: null,
+33 verbose parsed url   query: null,
+33 verbose parsed url   pathname: '^2.2.0',
+33 verbose parsed url   path: '^2.2.0',
+33 verbose parsed url   href: '^2.2.0' }
+34 verbose addNamed [ 'gulp-notify', '^2.2.0' ]
+35 verbose addNamed [ null, '>=2.2.0-0 <3.0.0-0' ]
+36 verbose cache add [ 'gulp-qunit@^1.2.1', null ]
+37 verbose cache add name=undefined spec="gulp-qunit@^1.2.1" args=["gulp-qunit@^1.2.1",null]
+38 verbose parsed url { protocol: null,
+38 verbose parsed url   slashes: null,
+38 verbose parsed url   auth: null,
+38 verbose parsed url   host: null,
+38 verbose parsed url   port: null,
+38 verbose parsed url   hostname: null,
+38 verbose parsed url   hash: null,
+38 verbose parsed url   search: null,
+38 verbose parsed url   query: null,
+38 verbose parsed url   pathname: 'gulp-qunit@^1.2.1',
+38 verbose parsed url   path: 'gulp-qunit@^1.2.1',
+38 verbose parsed url   href: 'gulp-qunit@^1.2.1' }
+39 verbose cache add [ 'gulp-sourcemaps@^1.5.2', null ]
+40 verbose cache add name=undefined spec="gulp-sourcemaps@^1.5.2" args=["gulp-sourcemaps@^1.5.2",null]
+41 verbose parsed url { protocol: null,
+41 verbose parsed url   slashes: null,
+41 verbose parsed url   auth: null,
+41 verbose parsed url   host: null,
+41 verbose parsed url   port: null,
+41 verbose parsed url   hostname: null,
+41 verbose parsed url   hash: null,
+41 verbose parsed url   search: null,
+41 verbose parsed url   query: null,
+41 verbose parsed url   pathname: 'gulp-sourcemaps@^1.5.2',
+41 verbose parsed url   path: 'gulp-sourcemaps@^1.5.2',
+41 verbose parsed url   href: 'gulp-sourcemaps@^1.5.2' }
+42 verbose cache add [ 'gulp-task-listing@^1.0.0', null ]
+43 verbose cache add name=undefined spec="gulp-task-listing@^1.0.0" args=["gulp-task-listing@^1.0.0",null]
+44 verbose parsed url { protocol: null,
+44 verbose parsed url   slashes: null,
+44 verbose parsed url   auth: null,
+44 verbose parsed url   host: null,
+44 verbose parsed url   port: null,
+44 verbose parsed url   hostname: null,
+44 verbose parsed url   hash: null,
+44 verbose parsed url   search: null,
+44 verbose parsed url   query: null,
+44 verbose parsed url   pathname: 'gulp-task-listing@^1.0.0',
+44 verbose parsed url   path: 'gulp-task-listing@^1.0.0',
+44 verbose parsed url   href: 'gulp-task-listing@^1.0.0' }
+45 verbose cache add [ 'gulp-uglify@^1.2.0', null ]
+46 verbose cache add name=undefined spec="gulp-uglify@^1.2.0" args=["gulp-uglify@^1.2.0",null]
+47 verbose parsed url { protocol: null,
+47 verbose parsed url   slashes: null,
+47 verbose parsed url   auth: null,
+47 verbose parsed url   host: null,
+47 verbose parsed url   port: null,
+47 verbose parsed url   hostname: null,
+47 verbose parsed url   hash: null,
+47 verbose parsed url   search: null,
+47 verbose parsed url   query: null,
+47 verbose parsed url   pathname: 'gulp-uglify@^1.2.0',
+47 verbose parsed url   path: 'gulp-uglify@^1.2.0',
+47 verbose parsed url   href: 'gulp-uglify@^1.2.0' }
+48 silly lockFile 3156ea88-gulp-3-8-11 gulp@^3.8.11
+49 verbose lock gulp@^3.8.11 /Users/Jesper.Svensson/.npm/3156ea88-gulp-3-8-11.lock
+50 silly lockFile 60a235d6-gulp-concat-2-5-2 gulp-concat@^2.5.2
+51 verbose lock gulp-concat@^2.5.2 /Users/Jesper.Svensson/.npm/60a235d6-gulp-concat-2-5-2.lock
+52 silly lockFile 6587a148-gulp-jshint-1-10-0 gulp-jshint@^1.10.0
+53 verbose lock gulp-jshint@^1.10.0 /Users/Jesper.Svensson/.npm/6587a148-gulp-jshint-1-10-0.lock
+54 silly lockFile a8c5b448-gulp-notify-2-2-0 gulp-notify@^2.2.0
+55 verbose lock gulp-notify@^2.2.0 /Users/Jesper.Svensson/.npm/a8c5b448-gulp-notify-2-2-0.lock
+56 verbose cache add name="gulp-qunit" spec="^1.2.1" args=["gulp-qunit","^1.2.1"]
+57 verbose parsed url { protocol: null,
+57 verbose parsed url   slashes: null,
+57 verbose parsed url   auth: null,
+57 verbose parsed url   host: null,
+57 verbose parsed url   port: null,
+57 verbose parsed url   hostname: null,
+57 verbose parsed url   hash: null,
+57 verbose parsed url   search: null,
+57 verbose parsed url   query: null,
+57 verbose parsed url   pathname: '^1.2.1',
+57 verbose parsed url   path: '^1.2.1',
+57 verbose parsed url   href: '^1.2.1' }
+58 verbose addNamed [ 'gulp-qunit', '^1.2.1' ]
+59 verbose addNamed [ null, '>=1.2.1-0 <2.0.0-0' ]
+60 silly lockFile f171e9df-gulp-qunit-1-2-1 gulp-qunit@^1.2.1
+61 verbose lock gulp-qunit@^1.2.1 /Users/Jesper.Svensson/.npm/f171e9df-gulp-qunit-1-2-1.lock
+62 verbose cache add name="gulp-sourcemaps" spec="^1.5.2" args=["gulp-sourcemaps","^1.5.2"]
+63 verbose parsed url { protocol: null,
+63 verbose parsed url   slashes: null,
+63 verbose parsed url   auth: null,
+63 verbose parsed url   host: null,
+63 verbose parsed url   port: null,
+63 verbose parsed url   hostname: null,
+63 verbose parsed url   hash: null,
+63 verbose parsed url   search: null,
+63 verbose parsed url   query: null,
+63 verbose parsed url   pathname: '^1.5.2',
+63 verbose parsed url   path: '^1.5.2',
+63 verbose parsed url   href: '^1.5.2' }
+64 verbose addNamed [ 'gulp-sourcemaps', '^1.5.2' ]
+65 verbose addNamed [ null, '>=1.5.2-0 <2.0.0-0' ]
+66 silly lockFile 469070bd-gulp-sourcemaps-1-5-2 gulp-sourcemaps@^1.5.2
+67 verbose lock gulp-sourcemaps@^1.5.2 /Users/Jesper.Svensson/.npm/469070bd-gulp-sourcemaps-1-5-2.lock
+68 verbose cache add name="gulp-task-listing" spec="^1.0.0" args=["gulp-task-listing","^1.0.0"]
+69 verbose parsed url { protocol: null,
+69 verbose parsed url   slashes: null,
+69 verbose parsed url   auth: null,
+69 verbose parsed url   host: null,
+69 verbose parsed url   port: null,
+69 verbose parsed url   hostname: null,
+69 verbose parsed url   hash: null,
+69 verbose parsed url   search: null,
+69 verbose parsed url   query: null,
+69 verbose parsed url   pathname: '^1.0.0',
+69 verbose parsed url   path: '^1.0.0',
+69 verbose parsed url   href: '^1.0.0' }
+70 verbose addNamed [ 'gulp-task-listing', '^1.0.0' ]
+71 verbose addNamed [ null, '>=1.0.0-0 <2.0.0-0' ]
+72 silly lockFile 8c71e0cf-gulp-task-listing-1-0-0 gulp-task-listing@^1.0.0
+73 verbose lock gulp-task-listing@^1.0.0 /Users/Jesper.Svensson/.npm/8c71e0cf-gulp-task-listing-1-0-0.lock
+74 verbose cache add name="gulp-uglify" spec="^1.2.0" args=["gulp-uglify","^1.2.0"]
+75 verbose parsed url { protocol: null,
+75 verbose parsed url   slashes: null,
+75 verbose parsed url   auth: null,
+75 verbose parsed url   host: null,
+75 verbose parsed url   port: null,
+75 verbose parsed url   hostname: null,
+75 verbose parsed url   hash: null,
+75 verbose parsed url   search: null,
+75 verbose parsed url   query: null,
+75 verbose parsed url   pathname: '^1.2.0',
+75 verbose parsed url   path: '^1.2.0',
+75 verbose parsed url   href: '^1.2.0' }
+76 verbose addNamed [ 'gulp-uglify', '^1.2.0' ]
+77 verbose addNamed [ null, '>=1.2.0-0 <2.0.0-0' ]
+78 silly lockFile c20ad875-gulp-uglify-1-2-0 gulp-uglify@^1.2.0
+79 verbose lock gulp-uglify@^1.2.0 /Users/Jesper.Svensson/.npm/c20ad875-gulp-uglify-1-2-0.lock
+80 silly addNameRange { name: 'gulp', range: '>=3.8.11-0 <4.0.0-0', hasData: false }
+81 silly addNameRange { name: 'gulp-concat',
+81 silly addNameRange   range: '>=2.5.2-0 <3.0.0-0',
+81 silly addNameRange   hasData: false }
+82 silly addNameRange { name: 'gulp-jshint',
+82 silly addNameRange   range: '>=1.10.0-0 <2.0.0-0',
+82 silly addNameRange   hasData: false }
+83 silly addNameRange { name: 'gulp-notify',
+83 silly addNameRange   range: '>=2.2.0-0 <3.0.0-0',
+83 silly addNameRange   hasData: false }
+84 silly addNameRange { name: 'gulp-qunit',
+84 silly addNameRange   range: '>=1.2.1-0 <2.0.0-0',
+84 silly addNameRange   hasData: false }
+85 silly addNameRange { name: 'gulp-sourcemaps',
+85 silly addNameRange   range: '>=1.5.2-0 <2.0.0-0',
+85 silly addNameRange   hasData: false }
+86 silly addNameRange { name: 'gulp-task-listing',
+86 silly addNameRange   range: '>=1.0.0-0 <2.0.0-0',
+86 silly addNameRange   hasData: false }
+87 verbose request where is /gulp-qunit
+88 verbose request registry https://registry.npmjs.org/
+89 verbose request id 1e2c97a169d2da51
+90 verbose url raw /gulp-qunit
+91 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-qunit' ]
+92 verbose url resolved https://registry.npmjs.org/gulp-qunit
+93 verbose request where is https://registry.npmjs.org/gulp-qunit
+94 info trying registry request attempt 1 at 09:37:37
+95 http GET https://registry.npmjs.org/gulp-qunit
+96 verbose request where is /gulp-sourcemaps
+97 verbose request registry https://registry.npmjs.org/
+98 verbose url raw /gulp-sourcemaps
+99 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-sourcemaps' ]
+100 verbose url resolved https://registry.npmjs.org/gulp-sourcemaps
+101 verbose request where is https://registry.npmjs.org/gulp-sourcemaps
+102 info trying registry request attempt 1 at 09:37:37
+103 http GET https://registry.npmjs.org/gulp-sourcemaps
+104 verbose request where is /gulp-task-listing
+105 verbose request registry https://registry.npmjs.org/
+106 verbose url raw /gulp-task-listing
+107 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-task-listing' ]
+108 verbose url resolved https://registry.npmjs.org/gulp-task-listing
+109 verbose request where is https://registry.npmjs.org/gulp-task-listing
+110 info trying registry request attempt 1 at 09:37:37
+111 http GET https://registry.npmjs.org/gulp-task-listing
+112 silly addNameRange { name: 'gulp-uglify',
+112 silly addNameRange   range: '>=1.2.0-0 <2.0.0-0',
+112 silly addNameRange   hasData: false }
+113 verbose request where is /gulp
+114 verbose request registry https://registry.npmjs.org/
+115 verbose url raw /gulp
+116 verbose url resolving [ 'https://registry.npmjs.org/', './gulp' ]
+117 verbose url resolved https://registry.npmjs.org/gulp
+118 verbose request where is https://registry.npmjs.org/gulp
+119 info trying registry request attempt 1 at 09:37:37
+120 verbose etag "AB2HPBXQS2ZIHVL2J3NK7CBD6"
+121 http GET https://registry.npmjs.org/gulp
+122 verbose request where is /gulp-concat
+123 verbose request registry https://registry.npmjs.org/
+124 verbose url raw /gulp-concat
+125 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-concat' ]
+126 verbose url resolved https://registry.npmjs.org/gulp-concat
+127 verbose request where is https://registry.npmjs.org/gulp-concat
+128 info trying registry request attempt 1 at 09:37:37
+129 verbose etag "GNUYZJX5DAYHIYEAFOWRWI5Q"
+130 http GET https://registry.npmjs.org/gulp-concat
+131 verbose request where is /gulp-jshint
+132 verbose request registry https://registry.npmjs.org/
+133 verbose url raw /gulp-jshint
+134 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-jshint' ]
+135 verbose url resolved https://registry.npmjs.org/gulp-jshint
+136 verbose request where is https://registry.npmjs.org/gulp-jshint
+137 info trying registry request attempt 1 at 09:37:37
+138 verbose etag "6XKIPJP6ZA6ZX2GZDK2NIVDID"
+139 http GET https://registry.npmjs.org/gulp-jshint
+140 verbose request where is /gulp-notify
+141 verbose request registry https://registry.npmjs.org/
+142 verbose url raw /gulp-notify
+143 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-notify' ]
+144 verbose url resolved https://registry.npmjs.org/gulp-notify
+145 verbose request where is https://registry.npmjs.org/gulp-notify
+146 info trying registry request attempt 1 at 09:37:37
+147 verbose etag "97HZZPTK0FYVO4ZDTWCU43ZUA"
+148 http GET https://registry.npmjs.org/gulp-notify
+149 verbose request where is /gulp-uglify
+150 verbose request registry https://registry.npmjs.org/
+151 verbose url raw /gulp-uglify
+152 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-uglify' ]
+153 verbose url resolved https://registry.npmjs.org/gulp-uglify
+154 verbose request where is https://registry.npmjs.org/gulp-uglify
+155 info trying registry request attempt 1 at 09:37:37
+156 verbose etag "3M7TIY5XXSNSLEM2DEVZ5RPQB"
+157 http GET https://registry.npmjs.org/gulp-uglify
+158 http 200 https://registry.npmjs.org/gulp-sourcemaps
+159 silly registry.get cb [ 200,
+159 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+159 silly registry.get     etag: '"775HL0NNIG3B6XH8G3VXYBIK4"',
+159 silly registry.get     'content-type': 'application/json',
+159 silly registry.get     'cache-control': 'max-age=60',
+159 silly registry.get     'content-length': '54952',
+159 silly registry.get     'accept-ranges': 'bytes',
+159 silly registry.get     date: 'Thu, 23 Apr 2015 07:36:32 GMT',
+159 silly registry.get     via: '1.1 varnish',
+159 silly registry.get     age: '3',
+159 silly registry.get     connection: 'keep-alive',
+159 silly registry.get     'x-served-by': 'cache-fra1222-FRA',
+159 silly registry.get     'x-cache': 'HIT',
+159 silly registry.get     'x-cache-hits': '1',
+159 silly registry.get     'x-timer': 'S1429774592.309795,VS0,VE0',
+159 silly registry.get     vary: 'Accept' } ]
+160 http 200 https://registry.npmjs.org/gulp-concat
+161 silly registry.get cb [ 200,
+161 silly registry.get   { date: 'Thu, 23 Apr 2015 07:36:32 GMT',
+161 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+161 silly registry.get     etag: '"5AUWE53P5LG7DE8B5PFIIN9OL"',
+161 silly registry.get     'content-type': 'application/json',
+161 silly registry.get     'cache-control': 'max-age=60',
+161 silly registry.get     'content-length': '34852',
+161 silly registry.get     'accept-ranges': 'bytes',
+161 silly registry.get     via: '1.1 varnish',
+161 silly registry.get     age: '43',
+161 silly registry.get     'x-served-by': 'cache-fra1246-FRA',
+161 silly registry.get     'x-cache': 'HIT',
+161 silly registry.get     'x-cache-hits': '2',
+161 silly registry.get     'x-timer': 'S1429774592.312199,VS0,VE0',
+161 silly registry.get     vary: 'Accept',
+161 silly registry.get     'keep-alive': 'timeout=10, max=50',
+161 silly registry.get     connection: 'Keep-Alive' } ]
+162 silly addNameRange number 2 { name: 'gulp-concat',
+162 silly addNameRange   range: '>=2.5.2-0 <3.0.0-0',
+162 silly addNameRange   hasData: true }
+163 silly addNameRange versions [ 'gulp-concat',
+163 silly addNameRange   [ '0.0.1',
+163 silly addNameRange     '1.0.0',
+163 silly addNameRange     '1.1.0',
+163 silly addNameRange     '2.0.0',
+163 silly addNameRange     '2.1.0',
+163 silly addNameRange     '2.1.1',
+163 silly addNameRange     '2.1.2',
+163 silly addNameRange     '2.1.3',
+163 silly addNameRange     '2.1.4',
+163 silly addNameRange     '2.1.5',
+163 silly addNameRange     '2.1.6',
+163 silly addNameRange     '2.1.7',
+163 silly addNameRange     '2.2.0',
+163 silly addNameRange     '2.3.0',
+163 silly addNameRange     '2.3.3',
+163 silly addNameRange     '2.3.4',
+163 silly addNameRange     '2.3.5',
+163 silly addNameRange     '2.4.0',
+163 silly addNameRange     '2.4.1',
+163 silly addNameRange     '2.4.2',
+163 silly addNameRange     '2.4.3',
+163 silly addNameRange     '2.5.0',
+163 silly addNameRange     '2.5.1',
+163 silly addNameRange     '2.5.2' ] ]
+164 verbose addNamed [ 'gulp-concat', '2.5.2' ]
+165 verbose addNamed [ '2.5.2', '2.5.2' ]
+166 silly lockFile f86cbda2-gulp-concat-2-5-2 gulp-concat@2.5.2
+167 verbose lock gulp-concat@2.5.2 /Users/Jesper.Svensson/.npm/f86cbda2-gulp-concat-2-5-2.lock
+168 http 200 https://registry.npmjs.org/gulp
+169 silly registry.get cb [ 200,
+169 silly registry.get   { date: 'Thu, 23 Apr 2015 07:36:32 GMT',
+169 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+169 silly registry.get     etag: '"481XE73X9GOI2A9R1O5FHNN7U"',
+169 silly registry.get     'content-type': 'application/json',
+169 silly registry.get     'cache-control': 'max-age=60',
+169 silly registry.get     'content-length': '101065',
+169 silly registry.get     'accept-ranges': 'bytes',
+169 silly registry.get     via: '1.1 varnish',
+169 silly registry.get     age: '37',
+169 silly registry.get     'x-served-by': 'cache-fra1224-FRA',
+169 silly registry.get     'x-cache': 'HIT',
+169 silly registry.get     'x-cache-hits': '2',
+169 silly registry.get     'x-timer': 'S1429774592.299548,VS0,VE0',
+169 silly registry.get     vary: 'Accept',
+169 silly registry.get     'keep-alive': 'timeout=10, max=50',
+169 silly registry.get     connection: 'Keep-Alive' } ]
+170 http 200 https://registry.npmjs.org/gulp-task-listing
+171 silly registry.get cb [ 200,
+171 silly registry.get   { date: 'Thu, 23 Apr 2015 07:36:32 GMT',
+171 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+171 silly registry.get     etag: '"VSA463UB8TOJKE1MDWS7HIVH"',
+171 silly registry.get     'content-type': 'application/json',
+171 silly registry.get     'cache-control': 'max-age=60',
+171 silly registry.get     'content-length': '11427',
+171 silly registry.get     'accept-ranges': 'bytes',
+171 silly registry.get     via: '1.1 varnish',
+171 silly registry.get     age: '0',
+171 silly registry.get     'x-served-by': 'cache-fra1238-FRA',
+171 silly registry.get     'x-cache': 'HIT',
+171 silly registry.get     'x-cache-hits': '1',
+171 silly registry.get     'x-timer': 'S1429774592.295842,VS0,VE107',
+171 silly registry.get     vary: 'Accept',
+171 silly registry.get     'keep-alive': 'timeout=10, max=50',
+171 silly registry.get     connection: 'Keep-Alive' } ]
+172 silly addNameRange number 2 { name: 'gulp-sourcemaps',
+172 silly addNameRange   range: '>=1.5.2-0 <2.0.0-0',
+172 silly addNameRange   hasData: true }
+173 silly addNameRange versions [ 'gulp-sourcemaps',
+173 silly addNameRange   [ '0.2.0',
+173 silly addNameRange     '0.2.1',
+173 silly addNameRange     '0.3.0',
+173 silly addNameRange     '0.3.1',
+173 silly addNameRange     '0.4.0',
+173 silly addNameRange     '0.4.1',
+173 silly addNameRange     '0.4.2',
+173 silly addNameRange     '0.4.3',
+173 silly addNameRange     '0.4.4',
+173 silly addNameRange     '0.4.5',
+173 silly addNameRange     '0.4.6',
+173 silly addNameRange     '1.0.0',
+173 silly addNameRange     '1.1.0',
+173 silly addNameRange     '1.1.1',
+173 silly addNameRange     '1.1.2',
+173 silly addNameRange     '1.1.3',
+173 silly addNameRange     '1.1.4',
+173 silly addNameRange     '1.1.5',
+173 silly addNameRange     '1.2.0',
+173 silly addNameRange     '1.2.1',
+173 silly addNameRange     '1.2.2',
+173 silly addNameRange     '1.2.3',
+173 silly addNameRange     '1.2.4',
+173 silly addNameRange     '1.2.5',
+173 silly addNameRange     '1.2.6',
+173 silly addNameRange     '1.2.7',
+173 silly addNameRange     '1.2.8',
+173 silly addNameRange     '1.3.0',
+173 silly addNameRange     '1.4.0',
+173 silly addNameRange     '1.5.0',
+173 silly addNameRange     '1.5.1',
+173 silly addNameRange     '1.5.2' ] ]
+174 verbose addNamed [ 'gulp-sourcemaps', '1.5.2' ]
+175 verbose addNamed [ '1.5.2', '1.5.2' ]
+176 silly lockFile b250b45d-gulp-sourcemaps-1-5-2 gulp-sourcemaps@1.5.2
+177 verbose lock gulp-sourcemaps@1.5.2 /Users/Jesper.Svensson/.npm/b250b45d-gulp-sourcemaps-1-5-2.lock
+178 silly lockFile 2b63d021-ulp-concat-gulp-concat-2-5-2-tgz https://registry.npmjs.org/gulp-concat/-/gulp-concat-2.5.2.tgz
+179 verbose lock https://registry.npmjs.org/gulp-concat/-/gulp-concat-2.5.2.tgz /Users/Jesper.Svensson/.npm/2b63d021-ulp-concat-gulp-concat-2-5-2-tgz.lock
+180 silly lockFile 0e8ca91b-cemaps-gulp-sourcemaps-1-5-2-tgz https://registry.npmjs.org/gulp-sourcemaps/-/gulp-sourcemaps-1.5.2.tgz
+181 verbose lock https://registry.npmjs.org/gulp-sourcemaps/-/gulp-sourcemaps-1.5.2.tgz /Users/Jesper.Svensson/.npm/0e8ca91b-cemaps-gulp-sourcemaps-1-5-2-tgz.lock
+182 verbose addRemoteTarball [ 'https://registry.npmjs.org/gulp-concat/-/gulp-concat-2.5.2.tgz',
+182 verbose addRemoteTarball   'd644372cdc2b3cdb421a8a941c8d74e21d815f14' ]
+183 verbose addRemoteTarball [ 'https://registry.npmjs.org/gulp-sourcemaps/-/gulp-sourcemaps-1.5.2.tgz',
+183 verbose addRemoteTarball   '796f6ff695a494215f3d3d66aa7ac853d7e73511' ]
+184 silly addNameRange number 2 { name: 'gulp', range: '>=3.8.11-0 <4.0.0-0', hasData: true }
+185 silly addNameRange versions [ 'gulp',
+185 silly addNameRange   [ '0.0.1',
+185 silly addNameRange     '0.0.2',
+185 silly addNameRange     '0.0.3',
+185 silly addNameRange     '0.0.4',
+185 silly addNameRange     '0.0.5',
+185 silly addNameRange     '0.0.7',
+185 silly addNameRange     '0.0.8',
+185 silly addNameRange     '0.0.9',
+185 silly addNameRange     '0.1.0',
+185 silly addNameRange     '0.2.0',
+185 silly addNameRange     '1.0.0',
+185 silly addNameRange     '1.1.0',
+185 silly addNameRange     '1.2.0',
+185 silly addNameRange     '1.2.1',
+185 silly addNameRange     '2.0.0',
+185 silly addNameRange     '2.0.1',
+185 silly addNameRange     '2.1.0',
+185 silly addNameRange     '2.2.0',
+185 silly addNameRange     '2.3.0',
+185 silly addNameRange     '2.4.0',
+185 silly addNameRange     '2.4.1',
+185 silly addNameRange     '2.6.0',
+185 silly addNameRange     '2.6.1',
+185 silly addNameRange     '2.7.0',
+185 silly addNameRange     '3.0.0',
+185 silly addNameRange     '3.1.1',
+185 silly addNameRange     '3.1.2',
+185 silly addNameRange     '3.1.3',
+185 silly addNameRange     '3.1.4',
+185 silly addNameRange     '3.2.0',
+185 silly addNameRange     '3.2.1',
+185 silly addNameRange     '3.2.2',
+185 silly addNameRange     '3.2.3',
+185 silly addNameRange     '3.2.4',
+185 silly addNameRange     '3.2.5',
+185 silly addNameRange     '3.3.0',
+185 silly addNameRange     '3.3.1',
+185 silly addNameRange     '3.3.2',
+185 silly addNameRange     '3.3.4',
+185 silly addNameRange     '3.4.0',
+185 silly addNameRange     '3.5.0',
+185 silly addNameRange     '3.5.1',
+185 silly addNameRange     '3.5.2',
+185 silly addNameRange     '3.5.5',
+185 silly addNameRange     '3.5.6',
+185 silly addNameRange     '3.6.0',
+185 silly addNameRange     '3.6.1',
+185 silly addNameRange     '3.6.2',
+185 silly addNameRange     '3.7.0',
+185 silly addNameRange     '3.8.0',
+185 silly addNameRange     '3.8.1',
+185 silly addNameRange     '3.8.2',
+185 silly addNameRange     '3.8.3',
+185 silly addNameRange     '3.8.4',
+185 silly addNameRange     '3.8.5',
+185 silly addNameRange     '3.8.6',
+185 silly addNameRange     '3.8.7',
+185 silly addNameRange     '3.8.8',
+185 silly addNameRange     '3.8.9',
+185 silly addNameRange     '3.8.10',
+185 silly addNameRange     '3.8.11' ] ]
+186 verbose addNamed [ 'gulp', '3.8.11' ]
+187 verbose addNamed [ '3.8.11', '3.8.11' ]
+188 silly lockFile 3d31ec08-gulp-3-8-11 gulp@3.8.11
+189 verbose lock gulp@3.8.11 /Users/Jesper.Svensson/.npm/3d31ec08-gulp-3-8-11.lock
+190 silly addNameRange number 2 { name: 'gulp-task-listing',
+190 silly addNameRange   range: '>=1.0.0-0 <2.0.0-0',
+190 silly addNameRange   hasData: true }
+191 silly addNameRange versions [ 'gulp-task-listing',
+191 silly addNameRange   [ '0.1.0', '0.2.0', '0.2.1', '0.2.2', '0.3.0', '1.0.0' ] ]
+192 verbose addNamed [ 'gulp-task-listing', '1.0.0' ]
+193 verbose addNamed [ '1.0.0', '1.0.0' ]
+194 silly lockFile b3c7a2a3-gulp-task-listing-1-0-0 gulp-task-listing@1.0.0
+195 verbose lock gulp-task-listing@1.0.0 /Users/Jesper.Svensson/.npm/b3c7a2a3-gulp-task-listing-1-0-0.lock
+196 silly lockFile 2528ddbe-y-npmjs-org-gulp-gulp-3-8-11-tgz https://registry.npmjs.org/gulp/-/gulp-3.8.11.tgz
+197 verbose lock https://registry.npmjs.org/gulp/-/gulp-3.8.11.tgz /Users/Jesper.Svensson/.npm/2528ddbe-y-npmjs-org-gulp-gulp-3-8-11-tgz.lock
+198 silly lockFile 7e92d65c-ting-gulp-task-listing-1-0-0-tgz https://registry.npmjs.org/gulp-task-listing/-/gulp-task-listing-1.0.0.tgz
+199 verbose lock https://registry.npmjs.org/gulp-task-listing/-/gulp-task-listing-1.0.0.tgz /Users/Jesper.Svensson/.npm/7e92d65c-ting-gulp-task-listing-1-0-0-tgz.lock
+200 info retry fetch attempt 1 at 09:37:38
+201 verbose fetch to= /var/folders/fm/h26kfyxx64v3dzdpd_5f6g780000gp/T/npm-2650-tV3iZaBV/registry.npmjs.org/gulp-sourcemaps/-/gulp-sourcemaps-1.5.2.tgz
+202 verbose addRemoteTarball [ 'https://registry.npmjs.org/gulp/-/gulp-3.8.11.tgz',
+202 verbose addRemoteTarball   'd557e0a7283eb4136491969b0497767972f1d28a' ]
+203 verbose addRemoteTarball [ 'https://registry.npmjs.org/gulp-task-listing/-/gulp-task-listing-1.0.0.tgz',
+203 verbose addRemoteTarball   '02fdeedc190b02a02ec31045dcb3322642929c62' ]
+204 info retry fetch attempt 1 at 09:37:38
+205 verbose fetch to= /var/folders/fm/h26kfyxx64v3dzdpd_5f6g780000gp/T/npm-2650-tV3iZaBV/registry.npmjs.org/gulp-concat/-/gulp-concat-2.5.2.tgz
+206 http GET https://registry.npmjs.org/gulp-sourcemaps/-/gulp-sourcemaps-1.5.2.tgz
+207 info retry fetch attempt 1 at 09:37:38
+208 verbose fetch to= /var/folders/fm/h26kfyxx64v3dzdpd_5f6g780000gp/T/npm-2650-tV3iZaBV/registry.npmjs.org/gulp/-/gulp-3.8.11.tgz
+209 http GET https://registry.npmjs.org/gulp-concat/-/gulp-concat-2.5.2.tgz
+210 http GET https://registry.npmjs.org/gulp/-/gulp-3.8.11.tgz
+211 info retry fetch attempt 1 at 09:37:38
+212 verbose fetch to= /var/folders/fm/h26kfyxx64v3dzdpd_5f6g780000gp/T/npm-2650-tV3iZaBV/registry.npmjs.org/gulp-task-listing/-/gulp-task-listing-1.0.0.tgz
+213 http GET https://registry.npmjs.org/gulp-task-listing/-/gulp-task-listing-1.0.0.tgz
+214 http 200 https://registry.npmjs.org/gulp-uglify
+215 silly registry.get cb [ 200,
+215 silly registry.get   { date: 'Thu, 23 Apr 2015 07:36:32 GMT',
+215 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+215 silly registry.get     etag: '"BRV83WWVN5CH82AOY9OZTJWMZ"',
+215 silly registry.get     'content-type': 'application/json',
+215 silly registry.get     'cache-control': 'max-age=60',
+215 silly registry.get     'content-length': '25525',
+215 silly registry.get     'accept-ranges': 'bytes',
+215 silly registry.get     via: '1.1 varnish',
+215 silly registry.get     age: '43',
+215 silly registry.get     'x-served-by': 'cache-fra1224-FRA',
+215 silly registry.get     'x-cache': 'HIT',
+215 silly registry.get     'x-cache-hits': '1',
+215 silly registry.get     'x-timer': 'S1429774592.462786,VS0,VE0',
+215 silly registry.get     vary: 'Accept',
+215 silly registry.get     'keep-alive': 'timeout=10, max=49',
+215 silly registry.get     connection: 'Keep-Alive' } ]
+216 silly addNameRange number 2 { name: 'gulp-uglify',
+216 silly addNameRange   range: '>=1.2.0-0 <2.0.0-0',
+216 silly addNameRange   hasData: true }
+217 silly addNameRange versions [ 'gulp-uglify',
+217 silly addNameRange   [ '0.0.1',
+217 silly addNameRange     '0.0.3',
+217 silly addNameRange     '0.0.4',
+217 silly addNameRange     '0.1.0',
+217 silly addNameRange     '0.2.0',
+217 silly addNameRange     '0.2.1',
+217 silly addNameRange     '0.3.0',
+217 silly addNameRange     '0.3.1',
+217 silly addNameRange     '0.3.2',
+217 silly addNameRange     '1.0.0-0',
+217 silly addNameRange     '1.0.0',
+217 silly addNameRange     '1.0.1',
+217 silly addNameRange     '1.0.2',
+217 silly addNameRange     '1.1.0',
+217 silly addNameRange     '1.2.0' ] ]
+218 verbose addNamed [ 'gulp-uglify', '1.2.0' ]
+219 verbose addNamed [ '1.2.0', '1.2.0' ]
+220 silly lockFile 9d272576-gulp-uglify-1-2-0 gulp-uglify@1.2.0
+221 verbose lock gulp-uglify@1.2.0 /Users/Jesper.Svensson/.npm/9d272576-gulp-uglify-1-2-0.lock
+222 silly lockFile a22faf16-ulp-uglify-gulp-uglify-1-2-0-tgz https://registry.npmjs.org/gulp-uglify/-/gulp-uglify-1.2.0.tgz
+223 verbose lock https://registry.npmjs.org/gulp-uglify/-/gulp-uglify-1.2.0.tgz /Users/Jesper.Svensson/.npm/a22faf16-ulp-uglify-gulp-uglify-1-2-0-tgz.lock
+224 verbose addRemoteTarball [ 'https://registry.npmjs.org/gulp-uglify/-/gulp-uglify-1.2.0.tgz',
+224 verbose addRemoteTarball   '760a86a5cf68453e0036130763dde2952093e38b' ]
+225 info retry fetch attempt 1 at 09:37:38
+226 verbose fetch to= /var/folders/fm/h26kfyxx64v3dzdpd_5f6g780000gp/T/npm-2650-tV3iZaBV/registry.npmjs.org/gulp-uglify/-/gulp-uglify-1.2.0.tgz
+227 http GET https://registry.npmjs.org/gulp-uglify/-/gulp-uglify-1.2.0.tgz
+228 http 200 https://registry.npmjs.org/gulp-jshint
+229 silly registry.get cb [ 200,
+229 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+229 silly registry.get     etag: '"5XLG12CCNPAGBYVXADAFI3XB6"',
+229 silly registry.get     'content-type': 'application/json',
+229 silly registry.get     'cache-control': 'max-age=60',
+229 silly registry.get     'content-length': '58822',
+229 silly registry.get     'accept-ranges': 'bytes',
+229 silly registry.get     date: 'Thu, 23 Apr 2015 07:36:32 GMT',
+229 silly registry.get     via: '1.1 varnish',
+229 silly registry.get     age: '0',
+229 silly registry.get     connection: 'keep-alive',
+229 silly registry.get     'x-served-by': 'cache-fra1222-FRA',
+229 silly registry.get     'x-cache': 'HIT',
+229 silly registry.get     'x-cache-hits': '1',
+229 silly registry.get     'x-timer': 'S1429774592.418841,VS0,VE111',
+229 silly registry.get     vary: 'Accept' } ]
+230 silly addNameRange number 2 { name: 'gulp-jshint',
+230 silly addNameRange   range: '>=1.10.0-0 <2.0.0-0',
+230 silly addNameRange   hasData: true }
+231 silly addNameRange versions [ 'gulp-jshint',
+231 silly addNameRange   [ '0.0.1',
+231 silly addNameRange     '0.1.0',
+231 silly addNameRange     '1.0.0',
+231 silly addNameRange     '1.1.0',
+231 silly addNameRange     '1.2.0',
+231 silly addNameRange     '1.3.0',
+231 silly addNameRange     '1.3.1',
+231 silly addNameRange     '1.3.2',
+231 silly addNameRange     '1.3.3',
+231 silly addNameRange     '1.3.4',
+231 silly addNameRange     '1.4.0',
+231 silly addNameRange     '1.4.1',
+231 silly addNameRange     '1.4.2',
+231 silly addNameRange     '1.5.0',
+231 silly addNameRange     '1.5.1',
+231 silly addNameRange     '1.5.2',
+231 silly addNameRange     '1.5.3',
+231 silly addNameRange     '1.5.4',
+231 silly addNameRange     '1.5.5',
+231 silly addNameRange     '1.5.6',
+231 silly addNameRange     '1.6.0',
+231 silly addNameRange     '1.6.1',
+231 silly addNameRange     '1.6.2',
+231 silly addNameRange     '1.6.3',
+231 silly addNameRange     '1.6.4',
+231 silly addNameRange     '1.7.0',
+231 silly addNameRange     '1.7.1',
+231 silly addNameRange     '1.8.0',
+231 silly addNameRange     '1.8.1',
+231 silly addNameRange     '1.8.2',
+231 silly addNameRange     '1.8.3',
+231 silly addNameRange     '1.8.4',
+231 silly addNameRange     '1.8.5',
+231 silly addNameRange     '1.8.6',
+231 silly addNameRange     '1.9.0',
+231 silly addNameRange     '1.9.2',
+231 silly addNameRange     '1.9.3',
+231 silly addNameRange     '1.9.4',
+231 silly addNameRange     '1.10.0' ] ]
+232 verbose addNamed [ 'gulp-jshint', '1.10.0' ]
+233 verbose addNamed [ '1.10.0', '1.10.0' ]
+234 silly lockFile 4defc810-gulp-jshint-1-10-0 gulp-jshint@1.10.0
+235 verbose lock gulp-jshint@1.10.0 /Users/Jesper.Svensson/.npm/4defc810-gulp-jshint-1-10-0.lock
+236 silly lockFile e2ee236a-lp-jshint-gulp-jshint-1-10-0-tgz https://registry.npmjs.org/gulp-jshint/-/gulp-jshint-1.10.0.tgz
+237 verbose lock https://registry.npmjs.org/gulp-jshint/-/gulp-jshint-1.10.0.tgz /Users/Jesper.Svensson/.npm/e2ee236a-lp-jshint-gulp-jshint-1-10-0-tgz.lock
+238 verbose addRemoteTarball [ 'https://registry.npmjs.org/gulp-jshint/-/gulp-jshint-1.10.0.tgz',
+238 verbose addRemoteTarball   'bfef911221820344b13ed39dfaf33da7b63a9501' ]
+239 info retry fetch attempt 1 at 09:37:38
+240 verbose fetch to= /var/folders/fm/h26kfyxx64v3dzdpd_5f6g780000gp/T/npm-2650-tV3iZaBV/registry.npmjs.org/gulp-jshint/-/gulp-jshint-1.10.0.tgz
+241 http GET https://registry.npmjs.org/gulp-jshint/-/gulp-jshint-1.10.0.tgz
+242 http 200 https://registry.npmjs.org/gulp-concat/-/gulp-concat-2.5.2.tgz
+243 silly lockFile 2b63d021-ulp-concat-gulp-concat-2-5-2-tgz https://registry.npmjs.org/gulp-concat/-/gulp-concat-2.5.2.tgz
+244 silly lockFile 2b63d021-ulp-concat-gulp-concat-2-5-2-tgz https://registry.npmjs.org/gulp-concat/-/gulp-concat-2.5.2.tgz
+245 silly lockFile f86cbda2-gulp-concat-2-5-2 gulp-concat@2.5.2
+246 silly lockFile f86cbda2-gulp-concat-2-5-2 gulp-concat@2.5.2
+247 silly lockFile 60a235d6-gulp-concat-2-5-2 gulp-concat@^2.5.2
+248 silly lockFile 60a235d6-gulp-concat-2-5-2 gulp-concat@^2.5.2
+249 http 200 https://registry.npmjs.org/gulp/-/gulp-3.8.11.tgz
+250 silly lockFile 2528ddbe-y-npmjs-org-gulp-gulp-3-8-11-tgz https://registry.npmjs.org/gulp/-/gulp-3.8.11.tgz
+251 silly lockFile 2528ddbe-y-npmjs-org-gulp-gulp-3-8-11-tgz https://registry.npmjs.org/gulp/-/gulp-3.8.11.tgz
+252 silly lockFile 3d31ec08-gulp-3-8-11 gulp@3.8.11
+253 silly lockFile 3d31ec08-gulp-3-8-11 gulp@3.8.11
+254 silly lockFile 3156ea88-gulp-3-8-11 gulp@^3.8.11
+255 silly lockFile 3156ea88-gulp-3-8-11 gulp@^3.8.11
+256 http 200 https://registry.npmjs.org/gulp-notify
+257 silly registry.get cb [ 200,
+257 silly registry.get   { date: 'Thu, 23 Apr 2015 07:36:32 GMT',
+257 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+257 silly registry.get     etag: '"71CM9K6D783JMKMDXDITZDJT9"',
+257 silly registry.get     'content-type': 'application/json',
+257 silly registry.get     'cache-control': 'max-age=60',
+257 silly registry.get     'content-length': '74324',
+257 silly registry.get     'accept-ranges': 'bytes',
+257 silly registry.get     via: '1.1 varnish',
+257 silly registry.get     age: '0',
+257 silly registry.get     'x-served-by': 'cache-fra1246-FRA',
+257 silly registry.get     'x-cache': 'HIT',
+257 silly registry.get     'x-cache-hits': '1',
+257 silly registry.get     'x-timer': 'S1429774592.421577,VS0,VE108',
+257 silly registry.get     vary: 'Accept',
+257 silly registry.get     'keep-alive': 'timeout=10, max=49',
+257 silly registry.get     connection: 'Keep-Alive' } ]
+258 http 200 https://registry.npmjs.org/gulp-uglify/-/gulp-uglify-1.2.0.tgz
+259 http 200 https://registry.npmjs.org/gulp-sourcemaps/-/gulp-sourcemaps-1.5.2.tgz
+260 http 200 https://registry.npmjs.org/gulp-task-listing/-/gulp-task-listing-1.0.0.tgz
+261 http 200 https://registry.npmjs.org/gulp-jshint/-/gulp-jshint-1.10.0.tgz
+262 silly addNameRange number 2 { name: 'gulp-notify',
+262 silly addNameRange   range: '>=2.2.0-0 <3.0.0-0',
+262 silly addNameRange   hasData: true }
+263 silly addNameRange versions [ 'gulp-notify',
+263 silly addNameRange   [ '0.0.5',
+263 silly addNameRange     '0.0.6',
+263 silly addNameRange     '0.0.7',
+263 silly addNameRange     '0.0.8',
+263 silly addNameRange     '0.1.0',
+263 silly addNameRange     '0.2.0',
+263 silly addNameRange     '0.3.0',
+263 silly addNameRange     '0.3.2',
+263 silly addNameRange     '0.3.3',
+263 silly addNameRange     '0.3.4',
+263 silly addNameRange     '0.3.4-1',
+263 silly addNameRange     '0.3.4-2',
+263 silly addNameRange     '0.3.5-0',
+263 silly addNameRange     '0.4.0',
+263 silly addNameRange     '0.4.1',
+263 silly addNameRange     '0.4.2',
+263 silly addNameRange     '0.4.3',
+263 silly addNameRange     '0.4.5',
+263 silly addNameRange     '0.4.6',
+263 silly addNameRange     '0.5.0',
+263 silly addNameRange     '0.5.1',
+263 silly addNameRange     '0.6.0',
+263 silly addNameRange     '0.6.1',
+263 silly addNameRange     '0.6.2',
+263 silly addNameRange     '1.0.0-beta',
+263 silly addNameRange     '1.1.0',
+263 silly addNameRange     '1.1.1',
+263 silly addNameRange     '1.2.0',
+263 silly addNameRange     '1.2.1',
+263 silly addNameRange     '1.2.2',
+263 silly addNameRange     '1.2.4',
+263 silly addNameRange     '1.2.5',
+263 silly addNameRange     '1.2.6',
+263 silly addNameRange     '1.3.0',
+263 silly addNameRange     '1.3.1',
+263 silly addNameRange     '1.4.0',
+263 silly addNameRange     '1.4.1',
+263 silly addNameRange     '1.4.2',
+263 silly addNameRange     '1.5.0',
+263 silly addNameRange     '1.5.1',
+263 silly addNameRange     '1.6.0',
+263 silly addNameRange     '1.7.0',
+263 silly addNameRange     '1.7.1',
+263 silly addNameRange     '1.8.0',
+263 silly addNameRange     '2.0.0',
+263 silly addNameRange     '2.0.1',
+263 silly addNameRange     '2.1.0',
+263 silly addNameRange     '2.2.0' ] ]
+264 verbose addNamed [ 'gulp-notify', '2.2.0' ]
+265 verbose addNamed [ '2.2.0', '2.2.0' ]
+266 silly lockFile 7dcdb195-gulp-notify-2-2-0 gulp-notify@2.2.0
+267 verbose lock gulp-notify@2.2.0 /Users/Jesper.Svensson/.npm/7dcdb195-gulp-notify-2-2-0.lock
+268 silly lockFile a22faf16-ulp-uglify-gulp-uglify-1-2-0-tgz https://registry.npmjs.org/gulp-uglify/-/gulp-uglify-1.2.0.tgz
+269 silly lockFile a22faf16-ulp-uglify-gulp-uglify-1-2-0-tgz https://registry.npmjs.org/gulp-uglify/-/gulp-uglify-1.2.0.tgz
+270 silly lockFile 9d272576-gulp-uglify-1-2-0 gulp-uglify@1.2.0
+271 silly lockFile 9d272576-gulp-uglify-1-2-0 gulp-uglify@1.2.0
+272 silly lockFile 568d90be-ulp-notify-gulp-notify-2-2-0-tgz https://registry.npmjs.org/gulp-notify/-/gulp-notify-2.2.0.tgz
+273 verbose lock https://registry.npmjs.org/gulp-notify/-/gulp-notify-2.2.0.tgz /Users/Jesper.Svensson/.npm/568d90be-ulp-notify-gulp-notify-2-2-0-tgz.lock
+274 silly lockFile c20ad875-gulp-uglify-1-2-0 gulp-uglify@^1.2.0
+275 silly lockFile c20ad875-gulp-uglify-1-2-0 gulp-uglify@^1.2.0
+276 verbose addRemoteTarball [ 'https://registry.npmjs.org/gulp-notify/-/gulp-notify-2.2.0.tgz',
+276 verbose addRemoteTarball   '046c8285c292e97eed4e15a009c26cbbe5cef135' ]
+277 silly lockFile e2ee236a-lp-jshint-gulp-jshint-1-10-0-tgz https://registry.npmjs.org/gulp-jshint/-/gulp-jshint-1.10.0.tgz
+278 silly lockFile e2ee236a-lp-jshint-gulp-jshint-1-10-0-tgz https://registry.npmjs.org/gulp-jshint/-/gulp-jshint-1.10.0.tgz
+279 silly lockFile 4defc810-gulp-jshint-1-10-0 gulp-jshint@1.10.0
+280 silly lockFile 4defc810-gulp-jshint-1-10-0 gulp-jshint@1.10.0
+281 info retry fetch attempt 1 at 09:37:38
+282 verbose fetch to= /var/folders/fm/h26kfyxx64v3dzdpd_5f6g780000gp/T/npm-2650-tV3iZaBV/registry.npmjs.org/gulp-notify/-/gulp-notify-2.2.0.tgz
+283 silly lockFile 6587a148-gulp-jshint-1-10-0 gulp-jshint@^1.10.0
+284 silly lockFile 6587a148-gulp-jshint-1-10-0 gulp-jshint@^1.10.0
+285 http GET https://registry.npmjs.org/gulp-notify/-/gulp-notify-2.2.0.tgz
+286 silly lockFile 0e8ca91b-cemaps-gulp-sourcemaps-1-5-2-tgz https://registry.npmjs.org/gulp-sourcemaps/-/gulp-sourcemaps-1.5.2.tgz
+287 silly lockFile 0e8ca91b-cemaps-gulp-sourcemaps-1-5-2-tgz https://registry.npmjs.org/gulp-sourcemaps/-/gulp-sourcemaps-1.5.2.tgz
+288 silly lockFile 7e92d65c-ting-gulp-task-listing-1-0-0-tgz https://registry.npmjs.org/gulp-task-listing/-/gulp-task-listing-1.0.0.tgz
+289 silly lockFile 7e92d65c-ting-gulp-task-listing-1-0-0-tgz https://registry.npmjs.org/gulp-task-listing/-/gulp-task-listing-1.0.0.tgz
+290 silly lockFile b250b45d-gulp-sourcemaps-1-5-2 gulp-sourcemaps@1.5.2
+291 silly lockFile b250b45d-gulp-sourcemaps-1-5-2 gulp-sourcemaps@1.5.2
+292 silly lockFile b3c7a2a3-gulp-task-listing-1-0-0 gulp-task-listing@1.0.0
+293 silly lockFile b3c7a2a3-gulp-task-listing-1-0-0 gulp-task-listing@1.0.0
+294 silly lockFile 469070bd-gulp-sourcemaps-1-5-2 gulp-sourcemaps@^1.5.2
+295 silly lockFile 469070bd-gulp-sourcemaps-1-5-2 gulp-sourcemaps@^1.5.2
+296 silly lockFile 8c71e0cf-gulp-task-listing-1-0-0 gulp-task-listing@^1.0.0
+297 silly lockFile 8c71e0cf-gulp-task-listing-1-0-0 gulp-task-listing@^1.0.0
+298 http 200 https://registry.npmjs.org/gulp-qunit
+299 silly registry.get cb [ 200,
+299 silly registry.get   { date: 'Thu, 23 Apr 2015 07:36:32 GMT',
+299 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+299 silly registry.get     etag: '"AXLFO63HKFIHLU96B049FBN7U"',
+299 silly registry.get     'content-type': 'application/json',
+299 silly registry.get     'cache-control': 'max-age=60',
+299 silly registry.get     'content-length': '25318',
+299 silly registry.get     'accept-ranges': 'bytes',
+299 silly registry.get     via: '1.1 varnish',
+299 silly registry.get     age: '0',
+299 silly registry.get     'x-served-by': 'cache-fra1225-FRA',
+299 silly registry.get     'x-cache': 'MISS',
+299 silly registry.get     'x-cache-hits': '0',
+299 silly registry.get     'x-timer': 'S1429774592.293165,VS0,VE357',
+299 silly registry.get     vary: 'Accept',
+299 silly registry.get     'keep-alive': 'timeout=10, max=50',
+299 silly registry.get     connection: 'Keep-Alive' } ]
+300 silly addNameRange number 2 { name: 'gulp-qunit',
+300 silly addNameRange   range: '>=1.2.1-0 <2.0.0-0',
+300 silly addNameRange   hasData: true }
+301 silly addNameRange versions [ 'gulp-qunit',
+301 silly addNameRange   [ '0.1.0',
+301 silly addNameRange     '0.1.1',
+301 silly addNameRange     '0.1.2',
+301 silly addNameRange     '0.1.3',
+301 silly addNameRange     '0.1.4',
+301 silly addNameRange     '0.1.5',
+301 silly addNameRange     '0.1.6',
+301 silly addNameRange     '0.1.7',
+301 silly addNameRange     '0.1.8',
+301 silly addNameRange     '0.2.0',
+301 silly addNameRange     '0.2.1',
+301 silly addNameRange     '0.2.2',
+301 silly addNameRange     '0.3.0',
+301 silly addNameRange     '0.3.1',
+301 silly addNameRange     '0.3.2',
+301 silly addNameRange     '0.3.3',
+301 silly addNameRange     '1.0.0',
+301 silly addNameRange     '1.1.0',
+301 silly addNameRange     '1.2.0',
+301 silly addNameRange     '1.2.1' ] ]
+302 verbose addNamed [ 'gulp-qunit', '1.2.1' ]
+303 verbose addNamed [ '1.2.1', '1.2.1' ]
+304 silly lockFile 25b5976e-gulp-qunit-1-2-1 gulp-qunit@1.2.1
+305 verbose lock gulp-qunit@1.2.1 /Users/Jesper.Svensson/.npm/25b5976e-gulp-qunit-1-2-1.lock
+306 silly lockFile 3ce17e4d--gulp-qunit-gulp-qunit-1-2-1-tgz https://registry.npmjs.org/gulp-qunit/-/gulp-qunit-1.2.1.tgz
+307 verbose lock https://registry.npmjs.org/gulp-qunit/-/gulp-qunit-1.2.1.tgz /Users/Jesper.Svensson/.npm/3ce17e4d--gulp-qunit-gulp-qunit-1-2-1-tgz.lock
+308 verbose addRemoteTarball [ 'https://registry.npmjs.org/gulp-qunit/-/gulp-qunit-1.2.1.tgz',
+308 verbose addRemoteTarball   'd175e8b94890bf3f79f10b27c471fb6264692c23' ]
+309 info retry fetch attempt 1 at 09:37:38
+310 verbose fetch to= /var/folders/fm/h26kfyxx64v3dzdpd_5f6g780000gp/T/npm-2650-tV3iZaBV/registry.npmjs.org/gulp-qunit/-/gulp-qunit-1.2.1.tgz
+311 http GET https://registry.npmjs.org/gulp-qunit/-/gulp-qunit-1.2.1.tgz
+312 http 200 https://registry.npmjs.org/gulp-notify/-/gulp-notify-2.2.0.tgz
+313 silly lockFile 568d90be-ulp-notify-gulp-notify-2-2-0-tgz https://registry.npmjs.org/gulp-notify/-/gulp-notify-2.2.0.tgz
+314 silly lockFile 568d90be-ulp-notify-gulp-notify-2-2-0-tgz https://registry.npmjs.org/gulp-notify/-/gulp-notify-2.2.0.tgz
+315 silly lockFile 7dcdb195-gulp-notify-2-2-0 gulp-notify@2.2.0
+316 silly lockFile 7dcdb195-gulp-notify-2-2-0 gulp-notify@2.2.0
+317 silly lockFile a8c5b448-gulp-notify-2-2-0 gulp-notify@^2.2.0
+318 silly lockFile a8c5b448-gulp-notify-2-2-0 gulp-notify@^2.2.0
+319 http 200 https://registry.npmjs.org/gulp-qunit/-/gulp-qunit-1.2.1.tgz
+320 silly lockFile 3ce17e4d--gulp-qunit-gulp-qunit-1-2-1-tgz https://registry.npmjs.org/gulp-qunit/-/gulp-qunit-1.2.1.tgz
+321 silly lockFile 3ce17e4d--gulp-qunit-gulp-qunit-1-2-1-tgz https://registry.npmjs.org/gulp-qunit/-/gulp-qunit-1.2.1.tgz
+322 silly lockFile 25b5976e-gulp-qunit-1-2-1 gulp-qunit@1.2.1
+323 silly lockFile 25b5976e-gulp-qunit-1-2-1 gulp-qunit@1.2.1
+324 silly lockFile f171e9df-gulp-qunit-1-2-1 gulp-qunit@^1.2.1
+325 silly lockFile f171e9df-gulp-qunit-1-2-1 gulp-qunit@^1.2.1
+326 error Error: EACCES, mkdir '/Users/Jesper.Svensson/.npm/gulp-concat/2.5.2'
+326 error  { [Error: EACCES, mkdir '/Users/Jesper.Svensson/.npm/gulp-concat/2.5.2']
+326 error   errno: 3,
+326 error   code: 'EACCES',
+326 error   path: '/Users/Jesper.Svensson/.npm/gulp-concat/2.5.2',
+326 error   parent: 'dhl-autofiller' }
+327 error Please try running this command again as root/Administrator.
+328 error System Darwin 14.3.0
+329 error command "node" "/usr/local/bin/npm" "install"
+330 error cwd /Users/Jesper.Svensson/dhl-autofiller
+331 error node -v v0.10.33
+332 error npm -v 1.4.28
+333 error path /Users/Jesper.Svensson/.npm/gulp-concat/2.5.2
+334 error code EACCES
+335 error errno 3
+336 error stack Error: EACCES, mkdir '/Users/Jesper.Svensson/.npm/gulp-concat/2.5.2'
+337 verbose exit [ 3, true ]
