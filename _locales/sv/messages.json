@@ -1,8 +1,4 @@
 {
-  "debugModeText": {
-    "message": "Debugläge",
-    "description": "Text for debug mode button"
-  },
   "extensionDescription": {
   	"message": "Ett litet, fiffigt pluigin som gör det möjligt att autofilla DHLmultishippings kundformulär baserat på REST-data från ditt affärssystem.",
   	"description": "Text for the manifest file"

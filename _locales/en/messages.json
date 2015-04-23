@@ -1,8 +1,4 @@
 {
-  "debugModeText": {
-    "message": "Debug mode",
-    "description": "Text for debug mode button"
-  },
   "extensionDescription": {
   	"message": "A plugin for those of you that uses DHLMultishipping. The extension helps you to auto fill the customer forms based upon data from a json file.",
   	"description": "Text for the manifest file"
