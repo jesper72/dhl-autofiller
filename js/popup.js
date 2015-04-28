@@ -1,4 +1,4 @@
-/*global localStorage: false, console: false, $: false, chrome: false, XMLHttpRequest: false, window: false */
+/*global localStorage: false, alert: false, console: false, $: false, chrome: false, XMLHttpRequest: false, window: false, JSON: false */
 
 var popup = {
 
@@ -16,7 +16,7 @@ var popup = {
     */
   current_url: null,
 
-  /**
+  /** 
     * @private
     *
     * Variable to hold the two URLs we need to identify which form we are filling
@@ -37,8 +37,13 @@ var popup = {
     * Init the component
     */
   init: function () {
+    this.getCustomerCache();
     this.getTabUrl();
-    this.loadCustomers();
+    if (this.customers) {
+      this.updateCustomerOptionsDOM(this.customers);
+    } else {
+      this.loadCustomers();
+    }
   },
 
   /**
@@ -67,7 +72,9 @@ var popup = {
   loadCustomers: function () {
 
     var request = new XMLHttpRequest(), headers = localStorage.headers, json_headers = JSON.parse(headers), i;
-
+    var loading_label = chrome.i18n.getMessage("loadingCustomerText");
+    var endpoint = localStorage.endpoint;
+    var msg;
     // Reset the input fields
     $('#id').val('');
     $('#name').val('');
@@ -77,10 +84,11 @@ var popup = {
     $('#phone').val('');
     $('#email').val('');
 
-    var endpoint = localStorage.endpoint;
+    // Reset the drop down
+    $('#customers').html('<option value="">' + loading_label + '</option>');
 
     if (endpoint.length === 0) {
-      var msg = chrome.i18n.getMessage("noEndpointConfiguredText");
+      msg = chrome.i18n.getMessage("noEndpointConfiguredText");
       this.error(msg);
       return;
     }
@@ -110,6 +118,8 @@ var popup = {
     $('#city').val(customer.city);
     $('#phone').val(customer.phone);
     $('#email').val(customer.email);
+
+    this.updateCustomerOptionsDOM(this.customers);
   },
 
   /**
@@ -160,6 +170,8 @@ var popup = {
         'document.getElementById("type.notify").checked = true;';
     }
     chrome.tabs.executeScript(null, {code: code});
+    this.setCustomerAsHandled(id);
+    this.updateCustomerOptionsDOM(this.customers);
   },
 
   /**
@@ -204,6 +216,18 @@ var popup = {
   },
 
   /**
+    * @private
+    *
+    * Set this customer as handled
+    *
+    * @param {number} customerId, a customer ID
+    */
+  setCustomerAsHandled: function (id) {
+    this.customers[id].handled = true;
+    this.setCustomerCache(this.customers);
+  },
+
+  /**
    * @private
    *
    * Updates the #customers select input with new values based on the passed
@@ -215,16 +239,41 @@ var popup = {
    * @param {String} customers.name
    */
   updateCustomerOptionsDOM: function (customers) {
-    var options, customer, select_customer_msg = chrome.i18n.getMessage("selectCustomerText");
+    var options, customer, handled, select_customer_msg = chrome.i18n.getMessage("selectCustomerText");
 
     options = '<option value="">' + select_customer_msg + '</option>';
 
     Object.keys(customers).forEach(function (key) {
       customer = customers[key];
-      options += '<option value="' + customer.id + '">' + customer.name + '</option>';
+      handled = (customer.handled) ? 'OK: ' : '';
+      options += '<option value="' + customer.id + '">' + handled + customer.name + '</option>';
     });
 
     $('#customers').html(options);
+  },
+
+  /**
+   * @private
+   *
+   * Transform the customer array into a string and store it in localStorage with key customers
+   * Returns nothing
+   *
+   * @param {Object} customers, Customers objects with customer ids as keys
+   * and the corresponding customer as value.
+   */
+  setCustomerCache: function (customers) {
+    localStorage.customers = JSON.stringify(customers);
+    this.customers = customers;
+  },
+
+  /**
+   * @private
+   *
+   * Return an array parsed from the customers string from localStorage
+   */
+  getCustomerCache: function () {
+    this.customers = JSON.parse(localStorage.customers);
+    return this.customers;
   },
 
   /**
@@ -252,9 +301,9 @@ var popup = {
   /**
    * @private
    *
-   * Create the customer options in the 'customers' select object
+   * Create the customer options in the 'customers' select object and persist a cached version to localeStorage
    *
-   * @param {ProgressEvent} e The XHR ProgressEvent.
+   * @param {ProgressEvent} The XHR ProgressEvent.
    */
   createCustomerOptions: function (event) {
     var responseText, customers;
@@ -262,7 +311,7 @@ var popup = {
     responseText = event.target.responseText;
     customers = this.parseResposetextToCustomers(responseText);
     this.updateCustomerOptionsDOM(customers);
-    this.customers = customers;
+    this.setCustomerCache(customers);
   },
 
   /**

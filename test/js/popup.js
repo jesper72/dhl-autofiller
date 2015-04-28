@@ -72,10 +72,11 @@ QUnit.test('getCustomerById', function (assert) {
 
   var test_string = JSON.stringify(test_data);
   var expected_response = test_data[1];
+  var response;
 
   /* populate popup.customers with our test data */
   popup.customers = popup.parseResposetextToCustomers(test_string);
-  var response = popup.getCustomerById(2);
+  response = popup.getCustomerById(2);
   assert.deepEqual(expected_response, response, 'Customer with ID 2 is returned');
 });
 
@@ -94,4 +95,26 @@ QUnit.test('getShippingServiecByNameDHLServicepoint', function (assert) {
   var response = popup.getShippingServiecByName(shipping_name);
 
   assert.equal(expected_response, response, 'Shipping service for DHL Servicepoint was returned');
+});
+
+QUnit.test('setAndGetCustomerCache', function (assert) {
+
+  var expected_response = [
+    {
+      "id": "1",
+      "name": "Jesper Svensson",
+      "address": "Street address",
+      "zipcode": "12345",
+      "city": "Växjö",
+      "email": "svejes@gmail.com",
+      "phone": "1029384746",
+      "shipping": "DHL Servicepoint"
+    }
+  ];
+  var response;
+
+  /* populate popup.customers with our test data */
+  popup.setCustomerCache(expected_response);
+  response = popup.getCustomerCache();
+  assert.deepEqual(expected_response, response, 'Cached data matches input data');
 });
