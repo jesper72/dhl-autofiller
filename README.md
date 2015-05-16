@@ -45,7 +45,8 @@ On the specified endpoint a JSON array of customers must be available through GE
     "city": "Växjö",
     "email": "svejes@gmail.com",
     "phone": "1029384746",
-    "shipping": "DHL Paket"
+    "shipping": "DHL Paket",
+    "order_id": "123123"
   },
   {
     "id": "2",
@@ -55,7 +56,8 @@ On the specified endpoint a JSON array of customers must be available through GE
     "city": "Knäckebrödhult",
     "email": "",
     "phone": "012345678",
-    "shipping": "DHL Servicepoint"
+    "shipping": "DHL Servicepoint",
+    "order_id": "234234"
   }
 ]
 ```

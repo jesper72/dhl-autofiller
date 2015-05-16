@@ -20,7 +20,8 @@ QUnit.test('parseResposetextToCustomers', function (assert) {
       "city": "Växjö",
       "email": "svejes@gmail.com",
       "phone": "1029384746",
-      "shipping": "DHL Servicepoint"
+      "shipping": "DHL Servicepoint",
+      "order_id": "123123"
     },
     {
       "id": "2",
@@ -30,7 +31,8 @@ QUnit.test('parseResposetextToCustomers', function (assert) {
       "city": "Knäckebrödhult",
       "email": "",
       "phone": "012345678",
-      "shipping": "DHL Paket"
+      "shipping": "DHL Paket",
+      "order_id": "124124"
     }
   ];
 
@@ -56,7 +58,8 @@ QUnit.test('getCustomerById', function (assert) {
       "city": "Växjö",
       "email": "svejes@gmail.com",
       "phone": "1029384746",
-      "shipping": "DHL Servicepoint"
+      "shipping": "DHL Servicepoint",
+      "order_id": "123123"
     },
     {
       "id": "2",
@@ -66,7 +69,8 @@ QUnit.test('getCustomerById', function (assert) {
       "city": "Knäckebrödhult",
       "email": "",
       "phone": "012345678",
-      "shipping": "DHL Servicepoint"
+      "shipping": "DHL Servicepoint",
+      "order_id": "124124"
     }
   ];
 

@@ -83,6 +83,7 @@ var popup = {
     $('#city').val('');
     $('#phone').val('');
     $('#email').val('');
+    $('#order_id').val('');
 
     // Reset the drop down
     $('#customers').html('<option value="">' + loading_label + '</option>');
@@ -109,6 +110,7 @@ var popup = {
   */
   populateCustomerData: function () {
     var customerId = $('#customers').val(), customer = this.getCustomerById(customerId);
+    console.log(customer);
 
     this.selectShippment(customer.shipping);
     $('#id').val(customer.id);
@@ -118,6 +120,7 @@ var popup = {
     $('#city').val(customer.city);
     $('#phone').val(customer.phone);
     $('#email').val(customer.email);
+    $('#order_id').val(customer.order_id);
 
     this.updateCustomerOptionsDOM(this.customers);
   },
@@ -131,7 +134,7 @@ var popup = {
   */
   fillDhlForm: function () {
 
-    var id = $('#id').val(), name = $('#name').val(), address = $('#address').val(), zipcode = $('#zipcode').val(), city = $('#city').val(), phone = $('#phone').val(), email = $('#email').val(), our_reference = localStorage.our_reference, goods_item = localStorage.goods_item, code;
+    var id = $('#id').val(), name = $('#name').val(), address = $('#address').val(), zipcode = $('#zipcode').val(), city = $('#city').val(), phone = $('#phone').val(), email = $('#email').val(), our_reference = localStorage.our_reference, goods_item = localStorage.goods_item, code, order_id = $('#order_id').val();
     this.getTabUrl();
 
     if (this.target_urls.register_shipment === this.current_url) {
@@ -149,7 +152,7 @@ var popup = {
         'document.getElementById("consignee_temp.phone").value = "' + phone + '";' +
         'document.getElementById("consignee_temp.email").value = "' + email + '";' +
         'document.getElementsByName("consignee_temp_save")[0].checked = true;' +
-        'document.getElementById("orderNo").value = "' + our_reference + '";' +
+        'document.getElementById("orderNo").value = "' + our_reference + ': ' + order_id + '";' +
         'document.getElementById("consigneeReference").value = "' + name + '";' +
         'document.getElementById("goodsItemList.goodsItems[0].goodsItemReferences[1].value").value="' + goods_item + '";' +
         'var evt2 = document.createEvent("MouseEvents");' +

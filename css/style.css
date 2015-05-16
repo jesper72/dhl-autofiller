@@ -1,11 +1,11 @@
 body {
-	min-width: 357px;
+	min-width: 407px;
 	overflow-x: hidden;
 	font-size: 14px;
 }
 
 .customer-info {
-	height: 330px;
+	height: 350px;
 }
 
 .customer-info input {

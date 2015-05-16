@@ -62,5 +62,9 @@
   "goodsItemText": {
     "message": "Varuslag",
     "description": "Text for the goods item text box"
+  },
+  "orderIdText": {
+    "message": "Order ID",
+    "description": "Text for the OrderID text box"
   }
 }
