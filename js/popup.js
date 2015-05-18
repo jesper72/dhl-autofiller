@@ -249,7 +249,7 @@ var popup = {
     Object.keys(customers).forEach(function (key) {
       customer = customers[key];
       handled = (customer.handled) ? 'OK: ' : '';
-      options += '<option value="' + customer.id + '">' + handled + customer.name + '</option>';
+      options += '<option value="' + customer.id + '">' + handled + customer.order_id + ': ' + customer.name + '</option>';
     });
 
     $('#customers').html(options);
