@@ -112,7 +112,8 @@ QUnit.test('setAndGetCustomerCache', function (assert) {
       "city": "Växjö",
       "email": "svejes@gmail.com",
       "phone": "1029384746",
-      "shipping": "DHL Servicepoint"
+      "shipping": "DHL Servicepoint",
+      "order_id": "123123"
     }
   ];
   var response;
@@ -121,4 +122,20 @@ QUnit.test('setAndGetCustomerCache', function (assert) {
   popup.setCustomerCache(expected_response);
   response = popup.getCustomerCache();
   assert.deepEqual(expected_response, response, 'Cached data matches input data');
+});
+
+QUnit.test('formatOrderId-Longer then 4', function (assert) {
+
+  var order_id = '12345678', expected_response = '5678';
+  var response = popup.formatOrderId(order_id);
+
+  assert.equal(expected_response, response, 'Correctly formatted orderId is returned');
+});
+
+QUnit.test('formatOrderId-Shorter then 4', function (assert) {
+
+  var order_id = '123', expected_response = '123';
+  var response = popup.formatOrderId(order_id);
+
+  assert.equal(expected_response, response, 'Correctly formatted orderId is returned');
 });

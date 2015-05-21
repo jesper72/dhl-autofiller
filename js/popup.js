@@ -120,7 +120,7 @@ var popup = {
     $('#city').val(customer.city);
     $('#phone').val(customer.phone);
     $('#email').val(customer.email);
-    $('#order_id').val(customer.order_id);
+    $('#order_id').val(this.formatOrderId(customer.order_id));
 
     this.updateCustomerOptionsDOM(this.customers);
   },
@@ -156,9 +156,16 @@ var popup = {
         'document.getElementById("consigneeReference").value = "' + name + '";' +
         'document.getElementById("goodsItemList.goodsItems[0].goodsItemReferences[1].value").value="' + goods_item + '";' +
         'var evt2 = document.createEvent("MouseEvents");' +
-        'evt2.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null); ' +
-        'document.getElementsByName("notify")[0].dispatchEvent(evt2);' +
-        'document.getElementById("notifySmsValue").value = "' + phone + '";';
+        'evt2.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null); ';
+
+      if (phone.length > 0) {
+        code += 'document.getElementsByName("notify")[0].dispatchEvent(evt2);' +
+          'document.getElementById("notifySmsValue").value = "' + phone + '";';
+      } else {
+        code += 'document.getElementsByName("notify")[1].dispatchEvent(evt2);' +
+          'document.getElementById("notifyEmailValue").value = "' + email + '";';
+      }
+
     } else {
       code = 'document.getElementById("id").value = "' + id + '";' +
         'document.getElementById("name").value = "' + name + '";' +
@@ -242,14 +249,14 @@ var popup = {
    * @param {String} customers.name
    */
   updateCustomerOptionsDOM: function (customers) {
-    var options, customer, handled, select_customer_msg = chrome.i18n.getMessage("selectCustomerText");
+    var options, customer, handled, select_customer_msg = chrome.i18n.getMessage("selectCustomerText"), _this = this;
 
     options = '<option value="">' + select_customer_msg + '</option>';
 
     Object.keys(customers).forEach(function (key) {
       customer = customers[key];
       handled = (customer.handled) ? 'OK: ' : '';
-      options += '<option value="' + customer.id + '">' + handled + customer.order_id + ': ' + customer.name + '</option>';
+      options += '<option value="' + customer.id + '">' + handled + _this.formatOrderId(customer.order_id) + ': ' + customer.name + '</option>';
     });
 
     $('#customers').html(options);
@@ -315,6 +322,21 @@ var popup = {
     customers = this.parseResposetextToCustomers(responseText);
     this.updateCustomerOptionsDOM(customers);
     this.setCustomerCache(customers);
+  },
+
+  /**
+  * @private
+  *
+  * return the last 4 digits of the order_id
+  *
+  * @param {string} order_id
+  */
+  formatOrderId: function (order_id) {
+    var output = order_id;
+    if (output.length > 4) {
+      output = output.substr(output.length - 4);
+    }
+    return output;
   },
 
   /**
