@@ -158,6 +158,7 @@ var popup = {
         'var evt2 = document.createEvent("MouseEvents");' +
         'evt2.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null); ';
 
+      /* If phone is provided, add the phone to SMS notification, else, use E-mail. */
       if (phone.length > 0) {
         code += 'document.getElementsByName("notify")[0].dispatchEvent(evt2);' +
           'document.getElementById("notifySmsValue").value = "' + phone + '";';

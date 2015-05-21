@@ -71,5 +71,5 @@ gulp.task('help', taskListing);
  * Will watch all js files and run develop on change.
  */
 gulp.task('default', function() {
-	 gulp.watch('./js/*.js', ['develop']);
+	 gulp.watch('./js/*.js', ['prod']);
 });
